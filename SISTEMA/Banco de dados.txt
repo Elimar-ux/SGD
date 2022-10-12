@@ -1,0 +1,39 @@
+Ainda não está completo.
+
+CREATE TABLE `administrador` (
+  `idAdministrador` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `endereco` varchar(256) NOT NULL,
+  `sexo` varchar(1) NOT NULL,
+  `salario` varchar(45) NOT NULL,
+  `login` varchar(8) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `funcao` int(1) NOT NULL,
+  `tipoUsuario` int(1) NOT NULL,
+  PRIMARY KEY (`idAdministrador`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `cliente` (
+  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `login` varchar(8) NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `numeroTelefone` varchar(11) NOT NULL,
+  `tipoUsuario` int(1) NOT NULL,
+  `endereco` varchar(256) NOT NULL,
+  PRIMARY KEY (`idCliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `estoque_chopeiras` (
+  `idChopeira` int(11) NOT NULL AUTO_INCREMENT,
+  `codigoChopeira` varchar(45) NOT NULL,
+  `tipoTorneira` varchar(45) NOT NULL,
+  `emUso` int(1) DEFAULT NULL,
+  `emHigienizacao` int(1) DEFAULT NULL,
+  PRIMARY KEY (`idChopeira`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+#para testar o login, insira este usuário(senha = 123).
+
+INSERT INTO administrador (nome, endereco, sexo, salario, login, senha, funcao, tipoUsuario) VALUES ('Administrador', 'Rua dos Bobos número zero', 'm', '2500', 'LLK', '202cb962ac59075b964b07152d234b70', '1', '1');
+
