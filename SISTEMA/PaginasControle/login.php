@@ -5,9 +5,7 @@ include('conexao.php');
 $login = $_POST['login'];
 $senha = md5($_POST['senha']);
 
-$sql = "SELECT * FROM cliente WHERE login = '$login'";
-$sql = "SELECT * FROM administrador WHERE login = '$login'";
-
+$sql = "SELECT * FROM cliente A, administrador B WHERE A.login = '$login' OR B.login = '$login'";
 
 $con = mysqli_query($conexao, $sql);
 $dado = mysqli_fetch_assoc($con);
@@ -28,8 +26,10 @@ if ($dado['tipoUsuario'] == '1') {
 }
 if ($dado['funcao'] == '0') {
 	$funcao = 'gerente';
+	$_SESSION['funcao'] = $funcao;
 }else{
 	$funcao = 'funcionario';
+	$_SESSION['funcao'] = $funcao;
 }
 
 
@@ -44,7 +44,7 @@ if($row == 1) {
 	$_SESSION['login'] = $login;
 		if ($tipoUser == 'adm') {
 			$_SESSION['perfil'] = 'adm';
-			header('Location: ../Paginas/home.php');
+			header('Location: ../Paginas/estoque.php');
 			exit();
 		}else{
 			$_SESSION['perfil'] = 'cliente';

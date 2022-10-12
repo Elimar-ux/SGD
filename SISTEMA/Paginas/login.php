@@ -12,7 +12,7 @@ session_start();
 <body>
 	<div class="container">
 		<div class="login">
-			<form action="./PaginasControle/login.php" method="POST">
+			<form action="../PaginasControle/login.php" method="POST">
 				<h2>LOGIN</h2>
 				<input type="text" name="login" placeholder="Login">
 				<input type="password" name="senha" placeholder="Senha">

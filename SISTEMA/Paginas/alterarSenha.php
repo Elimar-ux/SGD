@@ -1,5 +1,6 @@
 <?php 
 include('../PaginasControle/conexao.php');
+include('../PaginasControle/verificaLogin.php');
 
 $login = $_POST['login'];
 

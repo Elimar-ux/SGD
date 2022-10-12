@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../PaginasControle/conexao.php');
+include('../PaginasControle/verificaLogin.php');
 
 // consulta no banco de dados
 $consulta ="SELECT * FROM estoque_chopeiras";
