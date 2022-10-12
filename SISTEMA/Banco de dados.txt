@@ -33,7 +33,7 @@ CREATE TABLE `estoque_chopeiras` (
   PRIMARY KEY (`idChopeira`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
-#para testar o login, insira este usuário(senha = 123).
+#para testar o login, insira este usuário(login = adm - senha = 123).
 
-INSERT INTO administrador (nome, endereco, sexo, salario, login, senha, funcao, tipoUsuario) VALUES ('Administrador', 'Rua dos Bobos número zero', 'm', '2500', 'LLK', '202cb962ac59075b964b07152d234b70', '1', '1');
+INSERT INTO administrador (nome, endereco, sexo, salario, login, senha, funcao, tipoUsuario) VALUES ('Administrador', 'Rua dos Bobos número zero', 'm', '2500', 'adm', '202cb962ac59075b964b07152d234b70', '1', '1');
 

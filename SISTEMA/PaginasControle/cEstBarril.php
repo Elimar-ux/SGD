@@ -2,20 +2,21 @@
 session_start();
 include('conexao.php');
 // 1. RECUPERAR OS DADOS DO FORMULÁRIO(HTML)
-	$codigoChopeira = $_POST['codigo'];
-	$tipoChopeira = $_POST['tipoChopeira'];
+	$numeroBarril = $_POST['numeroBarril'];
+	$nomeChopp = $_POST['nomeChopp'];
+	$tipoChopp = $_POST['tipoChopp'];
+	$litros = $_POST['litros'];
 	$emUso = "nao";
-	$emHigienizacao = "nao";
+
 
 		
 // 2. VALIDAR OS DADOS ENVIADOS PELO FORMULÁRIO(VALIDAÇÕES)
 	// 2.1. VERIFICAR SE OS CAMPOS OBRIGATORIOS ESTÃO PRREENCHIDO
-	if(empty($codigoChopeira) OR  $tipoChopeira == "default"){
+	if(empty($numeroBarril) OR  empty($nomeChopp) OR empty($tipoChopp) OR empty($litros)){
 		echo "<br>Campos obrigatorio não preenchido";
 	}else{
 		echo "<br>Campos preenchido";
 	}
-	echo "<br>" . $codigoChopeira . "-" . $tipoChopeira;
 	
 
 	
@@ -29,8 +30,8 @@ include('conexao.php');
 	
 	
 // 6. CRIAR SCRIPT SQL QUE SERÁ EXECUTADO NO SERVIDOR DE BD
-	$sql = "INSERT INTO estoque_chopeiras (codigoChopeira, tipoTorneira, emUso, emHigienizacao)";
-	$sql .= " VALUES ('$codigoChopeira', '$tipoChopeira', '$emUso', '$emHigienizacao')";
+	$sql = "INSERT INTO estoque_barris (numeroBarril, nomeChopp, emUso, tipoChopp, litros)";
+	$sql .= " VALUES ('$numeroBarril', '$nomeChopp', '$emUso', '$tipoChopp', '$litros')";
 	
 	echo "<p>SQL: " . $sql;
 	
@@ -45,7 +46,7 @@ if($resultado){ //atualizado
 	header ('Location: ../paginas/estoque.php?m=$msg');
 }else{  //quando não for atualizado
 	$msg = "Erro ao cadastrar os dados";
-	header ('Location: ../paginas/cadEstChopeira.php?m=$msg');
+	header ('Location: ../paginas/cadEstBarril.php?m=$msg');
 }
 	
 ?>

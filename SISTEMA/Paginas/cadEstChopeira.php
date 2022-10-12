@@ -20,14 +20,14 @@ include('../PaginasControle/verificaLogin.php');
 	| <a href="estoque.php">VOLTAR</a>|
 	<!-- Fim-Menu -->
 	<div id="corpo-form-cad">
-		<h1>Cadastra-Livro</h1>
+		<h1>Adicionar chopeira</h1>
 		<form method="POST" enctype="multipart/form-data" action="../PaginasControle/cEstChopeira.php">
 			<input type="text" name="codigo" placeholder="Código da chopeira">
 			<select name="tipoChopeira">
 						<option value="default">--- TIPO ---</option>
 						<option value="Uma torneira">Uma torneira</option>
 						<option value="Duas torneiras">Duas torneiras</option>
-					</select>
+			</select>
 			<input type="submit" value="CADASTRAR">
 		</form>
 	</div>
