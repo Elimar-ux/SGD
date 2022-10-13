@@ -30,7 +30,7 @@ $totalEstBarris = mysqli_num_rows($con3);
 </head>
 <body>
 	<!-- Menu -->
-    | <a href="../paginasControl/logout.php">Sair da seção - <?php echo $_SESSION['login'];?></a>
+    | <a href="../PaginasControle/logout.php">Sair da seção - <?php echo $_SESSION['login'];?></a>
     <a href="homeAdm.php"> - Voltar</a>|
     <!-- Fim-Menu -->
 	<section>

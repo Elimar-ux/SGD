@@ -9,7 +9,7 @@ $senhaConfirm = md5($_POST['senhaConfirm']);
 
 /* Verificar campos em branco */
 
-if(empty($nome) OR empty($login) OR empty($senha) OR empty($senhaConfirm) OR $tipoUser == 'default'){
+if(empty($nome) OR empty($login) OR empty($senha) OR empty($senhaConfirm)){
     $m = "Verifique se os campos estão preenchidos!";
     header("Location: ../Paginas/cadastrar.php?m=$m");
     exit();
@@ -52,7 +52,8 @@ $sql = "INSERT INTO cliente (nome, login, senha, numeroTelefone) VALUES ('$nome'
 $resultado = mysqli_query($conexao, $sql);
 
 if ($resultado) {
-	header('Location: ../index.php');
+    $_SESSION['login'] = $login;
+	header('Location: ../Paginas/orcamento.php');
 	exit();
 } else {
 	echo "Erro ao cadastrar, Tente novamente!";

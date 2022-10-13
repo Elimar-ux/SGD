@@ -2,10 +2,10 @@
 <html>
 <head>
 <title>ChoppDrive</title>
- <link rel="shortcut icon" href="images/logo.ico">
+ <link rel="shortcut icon" href="../images/logo.ico">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -20,7 +20,6 @@ body, html {
 .bgimg-1 {
   background-position: center;
   background-size: cover;
-  background-image: url("images/chopp.jpg");
   min-height: 100%;
 }
 
@@ -57,9 +56,7 @@ body, html {
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:48px">
-    <p><a href="Paginas/orcamento.php" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Fazer um orçamento</a></p>
-  </div> 
+
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>
@@ -76,33 +73,6 @@ body, html {
   </div>
 </div>
 
-
-<!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTATO</h3>
-  <p class="w3-center w3-large">Fale conosco, envie sua mensagem:</p>
-  <div style="margin-top:48px">
-    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Brasília, DF</p>
-    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Whatsapp: (61) 98315-5678</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-    <br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Nome" required name="Nome"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Assunto" required name="Assunto"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Mensagem" required name="Mensagem"></p>
-      <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> Enviar
-        </button>
-      </p>
-    </form>
-    <!-- Image of location/map -->
-    <p>Localização: </p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10858.493078336573!2d-47.87110198666806!3d-15.800945849262124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3b38bf6375b9%3A0x5b6cafaacd19f3f!2sCongresso%20Nacional!5e0!3m2!1spt-BR!2sbr!4v1665578918575!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-</div>
-
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Voltar ao topo</a>
@@ -112,5 +82,9 @@ body, html {
   </div>
   <p>Feito com a ajuda do <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
+ 
+<script>
+</script>
+
 </body>
 </html>

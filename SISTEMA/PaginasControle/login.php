@@ -5,7 +5,7 @@ include('conexao.php');
 $login = $_POST['login'];
 $senha = md5($_POST['senha']);
 
-$sql = "SELECT * FROM cliente A, administrador B WHERE A.login = '$login' OR B.login = '$login'";
+$sql = "SELECT login, senha FROM cliente A, administrador B WHERE A.login = '$login' OR B.login = '$login'";
 
 $con = mysqli_query($conexao, $sql);
 $dado = mysqli_fetch_assoc($con);
@@ -20,10 +20,16 @@ if(empty($login) || empty($senha)) {
 if ($dado['tipoUsuario'] == '1') {
 	$tipoUser = 'adm';
 	$query = "select idAdministrador, login from administrador where login = '{$login}' and senha = '{$senha}'";
-}else{
+}elseif ($dado['tipoUsuario'] == '0') {
 	$tipoUser = 'cliente';
 	$query = "select idCliente, login from cliente where login = '{$login}' and senha = '{$senha}'";
 }
+if ($dado['login'] !== $login OR $dado['senha'] !== $senha) {
+	$m = "Usuário ou senha incorretos!";
+	header("Location: ../Paginas/login.php?m=$m");
+	exit();
+}
+
 if ($dado['funcao'] == '0') {
 	$funcao = 'gerente';
 	$_SESSION['funcao'] = $funcao;
@@ -48,13 +54,13 @@ if($row == 1) {
 			exit();
 		}else{
 			$_SESSION['perfil'] = 'cliente';
-			header('Location: ../Paginas/paginaCliente.php');
+			header('Location: orcamento.php');
 			exit();
 		}
 	
-} else {
-	$m = "Usuário ou senha incorretos!";
-	header("Location: ../index.php?m=$m");
+}else{
+	$m = "Erro ao acessar a conta!";
+	header("Location: ../Paginas/login.php?m=$m");
 	exit();
 }
 
