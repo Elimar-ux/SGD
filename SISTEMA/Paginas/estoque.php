@@ -148,35 +148,16 @@ $totalEstBarris = mysqli_num_rows($con3);
 					<form action="cadEstChopeira.php">
 						<button id="botao">Inserir</button>
 					</form>
-					<form action="homeAdm.php">
-						<button id="botao">Voltar</button>
-					</form>
-					<form action="../PaginasControle/logout.php">
-						<button id="botao" name="logout">Sair</button>
-					</form>
 				</div>
 
 				<div class="btnTabela2">
 					<form action="cadEstCilindro.php">
 						<button id="botao">Inserir</button>
-					</form>
-					<form action="homeAdm.php">
-						<button id="botao">Voltar</button>
-					</form>
-					<form action="../PaginasControle/logout.php">
-						<button id="botao" name="logout">Sair</button>
-					</form>
 				</div>
 
 				<div class="btnTabela3">
 					<form action="cadEstBarril.php">
 						<button id="botao">Inserir</button>
-					</form>
-					<form action="homeAdm.php">
-						<button id="botao">Voltar</button>
-					</form>
-					<form action="../PaginasControle/logout.php">
-						<button id="botao" name="logout">Sair</button>
 					</form>
 				</div>
 			</div>

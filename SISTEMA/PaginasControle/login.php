@@ -5,7 +5,7 @@ include('conexao.php');
 $login = $_POST['login'];
 $senha = md5($_POST['senha']);
 
-$sql = "SELECT login, senha FROM cliente A, administrador B WHERE A.login = '$login' OR B.login = '$login'";
+$sql = "SELECT * FROM cliente A, administrador B WHERE A.login = '$login' OR B.login = '$login'";
 
 $con = mysqli_query($conexao, $sql);
 $dado = mysqli_fetch_assoc($con);
