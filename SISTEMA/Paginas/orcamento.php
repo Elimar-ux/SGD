@@ -54,7 +54,7 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTATO</a>
-      <a href="Paginas/login.php" class="w3-bar-item w3-button"></i> LOGIN</a>
+      <a href="login.php" class="w3-bar-item w3-button"></i> LOGIN</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
