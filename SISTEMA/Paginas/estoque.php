@@ -36,7 +36,17 @@ $totalEstBarris = mysqli_num_rows($con3);
 	<section>
 		<div class="containerEstoque">
 			<div class="login">
-				<h2>Estoques</h2>
+				<div class="nomesTabelas">
+					<div>
+						<h2>ESTOQUE DE CHOPEIRA</h2>
+					</div>
+					<div>
+						<h2>ESTOQUE DE CILINDRO</h2>
+					</div>
+					<div>
+						<h2>ESTOQUE DE BARRIL</h2>
+					</div>
+				</div>
 				<div id="tabelas">
 					<div id="tabela1">
 						<div id="tbl-header">
