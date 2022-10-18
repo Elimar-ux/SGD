@@ -1,5 +1,3 @@
-Ainda não está completo.
-
 CREATE TABLE `administrador` (
   `idAdministrador` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -51,8 +49,3 @@ CREATE TABLE `estoque_cilindros` (
   `emUso` varchar(3) NOT NULL,
   PRIMARY KEY (`idCilindro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
-#para fazer login, insira este usuário(login = adm / senha = 123).
-
-INSERT INTO administrador (nome, endereco, sexo, salario, login, senha, funcao, tipoUsuario) VALUES ('Administrador', 'Rua dos Bobos número zero', 'm', '2500', 'adm', '202cb962ac59075b964b07152d234b70', '1', '1');
-

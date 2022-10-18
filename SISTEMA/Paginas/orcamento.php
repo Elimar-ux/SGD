@@ -1,7 +1,8 @@
 <?php 
 session_start();
 include('../PaginasControle/conexao.php');
-
+include('../PaginasControle/verificaLoginCliente.php');
+$login = $_GET['login'];
  ?>
 <!DOCTYPE html>
 <html>
@@ -9,8 +10,8 @@ include('../PaginasControle/conexao.php');
 <title>ChoppDrive</title>
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="../images/logo.ico">
-<link rel="stylesheet" href="../css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"  type="text/css" href="../css/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -43,6 +44,17 @@ body, html {
   display: flex;
   height: 350px;
 }
+.overlay {
+  height: 100%;
+  width: 200px;
+  background-color: #fff;
+  position: fixed!important;
+  z-index: 1;
+  position: fixed;
+  top: 1;
+  right: 0;
+}
+
 </style>
 </head>
 <body>
@@ -54,7 +66,7 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTATO</a>
-      <a href="login.php" class="w3-bar-item w3-button"></i> LOGIN</a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right" onclick="w3_open()"><i class="fa fa-user-circle-o"></i> PERFIL</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -64,12 +76,14 @@ body, html {
   </div>
 </div>
 
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTATO</a>
-  <a href="/paginas/login.php" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+<!-- Sidebar when clicking the menu icon -->
+<nav class="overlay w3-bar-block w3-black w3-card w3-animate-right" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Fechar ×</a>
+  <a class="w3-bar-item">Perfil: <?php echo "$login";?></a>
+  <a href="perfilCliente.php" onclick="w3_close()" class="w3-bar-item w3-button">Seu Perfil</a>
+  <a href="../PaginasControle/logout.php" onclick="w3_close()" class="w3-bar-item w3-button">Sair</a>
 </nav>
+
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
@@ -261,6 +275,30 @@ body, html {
 </footer>
  
 <script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
 </script>
 
 </body>

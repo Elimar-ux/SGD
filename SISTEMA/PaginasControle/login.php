@@ -5,7 +5,7 @@ include('conexao.php');
 $login = $_POST['login'];
 $senha = md5($_POST['senha']);
 
-$sql = "SELECT * FROM cliente A, administrador B WHERE A.login = '$login' OR B.login = '$login'";
+$sql = " SELECT login, senha, tipoUsuario FROM cliente WHERE login = '$login' UNION SELECT login, senha, tipoUsuario FROM administrador WHERE login = '$login';";
 
 $con = mysqli_query($conexao, $sql);
 $dado = mysqli_fetch_assoc($con);
@@ -54,7 +54,7 @@ if($row == 1) {
 			exit();
 		}else{
 			$_SESSION['perfil'] = 'cliente';
-			header('Location: orcamento.php');
+			header("Location: ../Paginas/orcamento.php?login=$login");
 			exit();
 		}
 	

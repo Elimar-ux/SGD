@@ -29,9 +29,37 @@ $totalEstBarris = mysqli_num_rows($con3);
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-	<!-- Menu -->
-    | <a href="../PaginasControle/logout.php">Sair da seção - <?php echo $_SESSION['login'];?></a>
-    <a href="homeAdm.php"> - Voltar</a>|
+	<style>
+	.overlay {
+	  height: 100%;
+	  width: 200px;
+	  background-color: #fff;
+	  position: fixed!important;
+	  z-index: 1;
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	}
+
+	</style>
+    <!-- Navbar (sit on top) -->
+	<div class="w3-top">
+	  <div class="w3-bar w3-white w3-card" id="myNavbar">
+	    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-wide" onclick="w3_open()"><i class="fa fa-user-circle-o"></i> OPÇÕES</a>
+	    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+	      <i class="fa fa-bars"></i>
+	    </a>
+	  </div>
+	</div>
+
+	<!-- menu lateral -->
+	<nav class="overlay w3-bar-block w3-black w3-card w3-animate-right" style="display:none" id="mySidebar">
+	  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Fechar ×</a>
+	  <a class="w3-bar-item">Perfil: <?php echo $_SESSION['login'];?></a>
+	  <a href="dashboard.php" onclick="w3_close()" class="w3-bar-item w3-button">Dashboard</a>
+	  <a href="../PaginasControle/logout.php" onclick="w3_close()" class="w3-bar-item w3-button">Sair</a>
+	</nav>
+
     <!-- Fim-Menu -->
 	<section>
 		<div class="containerEstoque">
@@ -172,6 +200,32 @@ $totalEstBarris = mysqli_num_rows($con3);
 				</div>
 			</div>
 		</div>
-	</section>	
+	</section>
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>	
 </body>
 </html>

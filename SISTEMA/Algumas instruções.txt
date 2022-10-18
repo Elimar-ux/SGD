@@ -1,0 +1,9 @@
+Para fazer o login, insira o registro de adm no banco de dados e 
+acesse com esse usuario:
+(login = adm / senha = 123).
+
+REGISTRO DE AMD:
+INSERT INTO administrador (nome, endereco, sexo, salario, login, senha, funcao, tipoUsuario) VALUES ('Administrador', 'Rua dos Bobos número zero', 'm', '2500', 'adm', '202cb962ac59075b964b07152d234b70', '1', '1');
+
+
+Quando realizar o login será direcionado para a tela de estoque.
