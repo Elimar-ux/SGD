@@ -30,7 +30,8 @@ $idLogin = $dado['idCliente'] OR $dado['idAdministrador'];
 
     <meta http-equiv="content-language" content="pt-br" />
     <meta name="robots" content="index, follow"/>
-        
+      
+    <link rel="icon" type="image/png" href="../images/logo.png">   
 	<link rel="stylesheet" type="text/css" href="../css/login/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/login/style.css">
     <link rel="stylesheet" type="text/css" href="../css/login/fonts-icones.css">
@@ -44,7 +45,7 @@ $idLogin = $dado['idCliente'] OR $dado['idAdministrador'];
     <div class="content">
     
         <div class="main_header_logo">
-            <img src="../images/logo.ico" alt="logo.png" title="ChoppDrive"/>
+            <img src="../images/logo.png" title="ChoppDrive"/>
             
         </div>
     
