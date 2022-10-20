@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('conexao.php');
 /* Recuperar Form */
 $nome = $_POST['nome'];
@@ -67,7 +68,7 @@ $resultado = mysqli_query($conexao, $sql);
 
 if ($resultado) {
     $_SESSION['login'] = $login;
-	header('Location: ../index.php');
+	header('Location: ../Paginas/orcamento.php');
 	exit();
 } else {
 	echo "Erro ao cadastrar, Tente novamente!";
