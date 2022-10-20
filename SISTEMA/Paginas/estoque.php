@@ -26,7 +26,10 @@ $totalEstBarris = mysqli_num_rows($con3);
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Estoque</title>
+	<link rel="icon" type="image/png" href="../images/logo.png">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<style>
@@ -44,8 +47,8 @@ $totalEstBarris = mysqli_num_rows($con3);
 	</style>
     <!-- Navbar (sit on top) -->
 	<div class="w3-top">
-	  <div class="w3-bar w3-white w3-card" id="myNavbar">
-	    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-wide" onclick="w3_open()"><i class="fa fa-user-circle-o"></i> OPÇÕES</a>
+	  <div class="w3-bar w3-white w3-card" id="myNavbar"> 
+	    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-wide" onclick="w3_open()"><i class="fa fa-bars fa-2x"></i></a>
 	    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
 	      <i class="fa fa-bars"></i>
 	    </a>
@@ -55,7 +58,7 @@ $totalEstBarris = mysqli_num_rows($con3);
 	<!-- menu lateral -->
 	<nav class="overlay w3-bar-block w3-black w3-card w3-animate-right" style="display:none" id="mySidebar">
 	  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Fechar ×</a>
-	  <a class="w3-bar-item">Perfil: <?php echo $_SESSION['login'];?></a>
+	  <a class="w3-bar-item"><i class="fa fa-user"></i> <?php echo $_SESSION['login'];?></a>
 	  <a href="dashboard.php" onclick="w3_close()" class="w3-bar-item w3-button">Dashboard</a>
 	  <a href="../PaginasControle/logout.php" onclick="w3_close()" class="w3-bar-item w3-button">Sair</a>
 	</nav>

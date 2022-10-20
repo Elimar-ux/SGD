@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>ChoppDrive</title>
- <link rel="icon" type="image/png" href="images/logo.png">
+ <link rel="icon" type="image/png" href="/images/logo.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
@@ -34,7 +34,8 @@ body, html {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+
+    <a href="#home" class="w3-bar-item w3-button w3-wide"><img src="images/logo.png" height="30" width="30"></a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTATO</a>
