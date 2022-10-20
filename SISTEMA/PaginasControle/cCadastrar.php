@@ -7,6 +7,20 @@ $telefone = $_POST['phoneString'];
 $senha = md5($_POST['senha']);
 $senhaConfirm = md5($_POST['senhaConfirm']);
 
+$verifica = "SELECT login FROM cliente WHERE login = '$login' UNION SELECT login FROM administrador WHERE login = '$login';";
+$con2 = mysqli_query($conexao, $verifica);
+$dado2 = mysqli_fetch_assoc($con2);
+
+if ($dado2['login'] == $login) {
+    $m = "Este nome de usuário já existe!";
+    header("Location: ../Paginas/cadastrar.php?m=$m");
+    exit();
+}
+
+
+
+
+
 /* Verificar campos em branco */
 
 if(empty($nome) OR empty($login) OR empty($senha) OR empty($senhaConfirm)){

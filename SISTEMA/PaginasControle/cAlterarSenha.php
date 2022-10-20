@@ -4,8 +4,7 @@ include("conexao.php");
 $id = $_GET['id'];
 
 // consulta no banco de dados
-$sql = "SELECT * FROM usuario";
-$sql .= " WHERE id_login = " . $id;
+$sql = " SELECT senha, tipoUsuario FROM cliente WHERE idCliente = '$id' UNION SELECT senha, tipoUsuario FROM administrador WHERE idAdministrador = '$id';";
 
 $con = mysqli_query($conexao, $sql);
 
@@ -27,8 +26,14 @@ if ($senha != $senhaConfirm) {
 
 
 //altera a senha
-$altera = "UPDATE usuario SET senha = '$senha'";
-$altera .= " WHERE id_login = " . $id;
+if ($dado['tipoUsuario'] == 0) {
+	$altera = "UPDATE cliente SET senha = '$senha'";
+	$altera .= " WHERE idCliente = " . $id;
+}elseif ($dado['tipoUsuario'] == 1) {
+	$altera = "UPDATE administrador SET senha = '$senha'";
+	$altera .= " WHERE idAdministrador = " . $id;
+}
+
 
 $resultado = mysqli_query($conexao, $altera);
 

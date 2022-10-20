@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/login/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/login/style.css">
     <link rel="stylesheet" type="text/css" href="../css/login/fonts-icones.css">
-	<title>Login</title>
+	<title>Cadastrar</title>
  
  </head>
 
@@ -40,6 +40,14 @@
                 <div class="box-login">
 
                     <h1 class="title_login"><i class="icon icon-key-1"></i> Cadastrar</h1>
+
+                    <span style="color: white">
+                        <?php
+                            if(isset($_GET['m'])){
+                                echo $_GET['m'];
+                            }   
+                        ?>
+                    </span>
 
                     <form action="../PaginasControle/cCadastrar.php" method="post" class="form login">
                         <!-- action="../PaginasControle/login.php" -->
@@ -113,6 +121,14 @@
                         </div>
                         
                     </form>
+
+                    <form action="login.php" method="post" class="form login">
+                        <div class="btn_voltar">
+                            <input type="submit" value="Voltar">
+                                
+                        </div>
+                    </form>
+
 
                 </div>
 
