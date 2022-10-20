@@ -53,7 +53,7 @@ $resultado = mysqli_query($conexao, $sql);
 
 if ($resultado) {
     $_SESSION['login'] = $login;
-	header('Location: ../Paginas/orcamento.php');
+	header('Location: ../index.php');
 	exit();
 } else {
 	echo "Erro ao cadastrar, Tente novamente!";

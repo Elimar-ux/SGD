@@ -22,7 +22,7 @@
     <div class="content">
     
         <div class="main_header_logo">
-            <img src="../images/logo.ico" alt="logo.png" title="Loop Nerd"/>
+            <img src="../images/logo.ico" alt="logo.png" title="ChoppDrive"/>
             
         </div>
     
@@ -40,6 +40,13 @@
                 <div class="box-login">
 
                     <h1 class="title_login"><i class="icon icon-key-1"></i> Login</h1>
+                    <span style="color: white">
+                        <?php
+                            if(isset($_GET['m'])){
+                                echo $_GET['m'];
+                            }   
+                        ?>
+                    </span>
 
                     <form action="../PaginasControle/login.php" method="post" class="form login">
                         <!-- action="../PaginasControle/login.php" -->
@@ -75,17 +82,15 @@
                         
                     </form>
 
-                    <p class="resgatar-senha">Resgatar Senha, 
-
-                        <a href="../Paginas/esqueciSenha.php">Agora </a> 
-                        <!-- <a href="esqueciSenha.php">Agora </a> -->
-                    </p>
-
                 </div>
 
 
-            </div>
 
+            </div>
+            <div class="links">
+                <a class="linkss" href="../Paginas/cadastrar.php">Cadastrar</a> 
+                <a class="linkss" href="../Paginas/esqueciSenha.php">Esqueci a senha </a>
+            </div>
 
         <div class="clear"></div>
         </div>
