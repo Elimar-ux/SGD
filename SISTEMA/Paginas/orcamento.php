@@ -116,56 +116,56 @@ body, html {
           <tr>
             <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0" oninput="display.value=value" onchange="display.value=value">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
           <tr>
             <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
           <tr>
             <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
           <tr>
             <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
           <tr>
             <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
         </table>
@@ -178,57 +178,57 @@ body, html {
           <tr>
             <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist>
             </td>
           </tr>
           <tr>
             <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
           <tr>
             <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
           <tr>
             <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
           <tr>
             <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
-              <option value="0">
-              <option value="1">
-              <option value="2">
-              <option value="3">
-              <option value="4">
-              <option value="5">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
               </datalist></td>
           </tr>
         </table>
