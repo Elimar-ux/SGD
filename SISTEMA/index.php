@@ -79,8 +79,9 @@ body, html {
 
 
 <!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTATO</h3>
+<div class="w3-container w3-light-grey" style="padding: 65px 341px" id="contact">
+
+  <h3 class="w3-center" style="text-shadow:1px 0px 0 #9444" >CONTATO</h3>
   <p class="w3-center w3-large">Fale conosco, envie sua mensagem:</p>
   <div style="margin-top:48px">
     <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Brasília, DF</p>
