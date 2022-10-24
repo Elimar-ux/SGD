@@ -32,18 +32,7 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
-.tabelasChopp{
-  display: flex;
-  height: 350px;
-}
-.tabelaOrcamento1{
-  border: solid 1px rgba(0, 0, 0, 0.55);
-}
-.tabelasChoppTeste{
-  border: solid 1px rgba(0, 0, 0, 0.55);
-  display: flex;
-  height: 350px;
-}
+
 .overlay {
   height: 100%;
   width: 200px;
@@ -91,16 +80,16 @@ body, html {
   <div class="tabelasChopp">
     <div class="tabelasChoppTeste">
       <div class="tabelaChopp1">
-        <table>
+        <table class="testeTabela">
           <tr>
-            <th>Chopps</th>
+            <th style="width: 300px;">Chopps</th>
           </tr>
           <tr>
             <td>Chopp Capital</td>
           </tr>
             <td>Chopp Brasília</td>
           <tr>
-            <td>Chopp DLRS</td>
+            <td>Chopp DLSR</td>
           </tr>
             <td>Chopp JK</td>
           <tr>
@@ -113,61 +102,67 @@ body, html {
           <tr>
             <th>Quantidade de barris 30 Litros</th>
           </tr>
-          <tr>
-            <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0" oninput="display.value=value" onchange="display.value=value">
-              <datalist id="tickmarks">
-              <option value="0">0
-              <option value="1">1
-              <option value="2">2
-              <option value="3">3
-              <option value="4">4
-              <option value="5">5
-              </datalist></td>
-          </tr>
-          <tr>
-            <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
-              <datalist id="tickmarks">
-              <option value="0">0
-              <option value="1">1
-              <option value="2">2
-              <option value="3">3
-              <option value="4">4
-              <option value="5">5
-              </datalist></td>
-          </tr>
-          <tr>
-            <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
-              <datalist id="tickmarks">
-              <option value="0">0
-              <option value="1">1
-              <option value="2">2
-              <option value="3">3
-              <option value="4">4
-              <option value="5">5
-              </datalist></td>
-          </tr>
-          <tr>
-            <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
-              <datalist id="tickmarks">
-              <option value="0">0
-              <option value="1">1
-              <option value="2">2
-              <option value="3">3
-              <option value="4">4
-              <option value="5">5
-              </datalist></td>
-          </tr>
-          <tr>
-            <td><input name="30lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
-              <datalist id="tickmarks">
-              <option value="0">0
-              <option value="1">1
-              <option value="2">2
-              <option value="3">3
-              <option value="4">4
-              <option value="5">5
-              </datalist></td>
-          </tr>
+            <tr>
+              <td>
+                <input name="30lCapital" class="range1" type="range" min="0" max="5" list="tickmarks" value="0">
+                <datalist id="tickmarks">
+                <option value="0">0
+                <option value="1">1
+                <option value="2">2
+                <option value="3">3
+                <option value="4">4
+                <option value="5">5
+                </datalist>
+              </td>
+            </tr>   
+            <tr>
+              <td>
+                <input name="30lBrasilia" class="range2" type="range" min="0" max="5" list="tickmarks" value="0">
+                <datalist id="tickmarks">
+                <option value="0">0
+                <option value="1">1
+                <option value="2">2
+                <option value="3">3
+                <option value="4">4
+                <option value="5">5
+                </datalist></td>
+            </tr>   
+            <tr>
+              <td>
+                <input name="30lDslr" class="range3" type="range" min="0" max="5" list="tickmarks" value="0">
+                <datalist id="tickmarks">
+                <option value="0">0
+                <option value="1">1
+                <option value="2">2
+                <option value="3">3
+                <option value="4">4
+                <option value="5">5
+                </datalist></td>
+            </tr>    
+            <tr>
+              <td>
+                <input name="30lJk" class="range4" type="range" min="0" max="5" list="tickmarks" value="0">
+                <datalist id="tickmarks">
+                <option value="0">0
+                <option value="1">1
+                <option value="2">2
+                <option value="3">3
+                <option value="4">4
+                <option value="5">5
+                </datalist></td>
+            </tr>
+            <tr>
+              <td>
+                <input name="30lMonumental" class="range5" type="range" min="0" max="5" list="tickmarks" value="0">
+                <datalist id="tickmarks">
+                <option value="0">0
+                <option value="1">1
+                <option value="2">2
+                <option value="3">3
+                <option value="4">4
+                <option value="5">5
+                </datalist></td>
+            </tr>
         </table>
       </div>
       <div class="tabelaChopp3">
@@ -176,7 +171,7 @@ body, html {
             <th>Quantidade de barris 50 Litros</th>
           </tr>
           <tr>
-            <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
+            <td><input name="50lCapital" class="range50L1" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
               <option value="0">0
               <option value="1">1
@@ -188,7 +183,8 @@ body, html {
             </td>
           </tr>
           <tr>
-            <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
+            <td>
+              <input name="50lCapital" class="range50L2" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
               <option value="0">0
               <option value="1">1
@@ -199,7 +195,20 @@ body, html {
               </datalist></td>
           </tr>
           <tr>
-            <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
+            <td>
+              <input name="50lCapital" class="range50L3" type="range" min="0" max="5" list="tickmarks" value="0">
+              <datalist id="tickmarks">
+              <option value="0">0
+              <option value="1">1
+              <option value="2">2
+              <option value="3">3
+              <option value="4">4
+              <option value="5">5
+              </datalist>
+            </td>
+          </tr>
+          <tr>
+            <td><input name="50lCapital" class="range50L4" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
               <option value="0">0
               <option value="1">1
@@ -210,7 +219,8 @@ body, html {
               </datalist></td>
           </tr>
           <tr>
-            <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
+            <td>
+              <input name="50lCapital" class="range50L5" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
               <option value="0">0
               <option value="1">1
@@ -218,23 +228,16 @@ body, html {
               <option value="3">3
               <option value="4">4
               <option value="5">5
-              </datalist></td>
-          </tr>
-          <tr>
-            <td><input name="50lCapital" type="range" min="0" max="5" list="tickmarks" value="0">
-              <datalist id="tickmarks">
-              <option value="0">0
-              <option value="1">1
-              <option value="2">2
-              <option value="3">3
-              <option value="4">4
-              <option value="5">5
-              </datalist></td>
+              </datalist>
+            </td>
           </tr>
         </table>
       </div>
     </div>
-    <div class="tabelaOrcamento1">
+  </div>
+
+</section>
+<div class="tabelaOrcamento1">
         <table>
             <thead>
                 <tr>
@@ -243,17 +246,35 @@ body, html {
             </thead>
         </table>
         <table>
-            <tbody>
+            <form action="" method="POST">
                 <tr>
-                    <td><input type="text" id="display" value="0"
-                          oninput="vol.value=value" onchange="vol.value=value">
+                    <td>                      
+                      <p class="orcamento30L1"><span id="resultadoTempoReal"></span> Barris de 30L - chopp capital</p>
+                      <p class="orcamento30L2"><span id="resultadoTempoReal2"></span> Barris de 30L - chopp brasília</p>
+                      <p class="orcamento30L3"><span id="resultadoTempoReal3"></span> Barris de 30L - chopp DSLR</p>
+                      <p class="orcamento30L4"><span id="resultadoTempoReal4"></span> Barris de 30L - chopp JK</p>
+                      <p class="orcamento30L5"><span id="resultadoTempoReal5"></span> Barris de 30L - chopp Monumental</p>
+
+                      <p class="orcamento50L1"><span id="resultadoTempoReal50L"></span> Barris de 50L - chopp capital</p>
+                      <p class="orcamento50L2"><span id="resultadoTempoReal50L2"></span> Barris de 50L - chopp brasília</p>
+                      <p class="orcamento50L3"><span id="resultadoTempoReal50L3"></span> Barris de 50L - chopp DSLR</p>
+                      <p class="orcamento50L4"><span id="resultadoTempoReal50L4"></span> Barris de 50L - chopp JK</p>
+                      <p class="orcamento50L5"><span id="resultadoTempoReal50L5"></span> Barris de 50L - chopp Monumental</p>
                     </td>
                 </tr>
-            </tbody>
+                <input class="btn-orcamento" type="button" name="enviar" value="Confirmar orçamento!">
+            </form>
         </table>
     </div>
-  </div>
-</section>
+    <div class="tabelaResultado">
+      <table>
+          <tr>
+                <td>
+                  <p class="totalReais">TOTAL - R$: <span id="resultadoReais"></span></p>
+                </td>
+              </tr>
+        </table>
+    </div>
 </header>
   <!-- Modal for full size images on click-->
   <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
@@ -300,6 +321,157 @@ function w3_open() {
 function w3_close() {
     mySidebar.style.display = "none";
 }
+
+
+// Mostrar o resultado do slider de 30l chopp capital
+var range1 = document.querySelector('.range1');
+var linhaOrcamento = document.querySelector('.orcamento30L1');
+var value1 = document.querySelector('#resultadoTempoReal');
+
+range1.addEventListener('input', function() {
+  if(range1.value == 0) {
+      linhaOrcamento.style.display = 'none';
+  } else {
+      linhaOrcamento.style.display = 'block';
+      value1.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 30l chopp brasília
+var range2 = document.querySelector('.range2');
+var linhaOrcamento2 = document.querySelector('.orcamento30L2');
+var value2 = document.querySelector('#resultadoTempoReal2');
+
+range2.addEventListener('input', function() {
+  if(range2.value == 0) {
+      linhaOrcamento2.style.display = 'none';
+  } else {
+      linhaOrcamento2.style.display = 'block';
+      value2.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 30l chopp DSLR
+var range3 = document.querySelector('.range3');
+var linhaOrcamento3 = document.querySelector('.orcamento30L3');
+var value3 = document.querySelector('#resultadoTempoReal3');
+
+range3.addEventListener('input', function() {
+  if(range3.value == 0) {
+      linhaOrcamento3.style.display = 'none';
+  } else {
+      linhaOrcamento3.style.display = 'block';
+      value3.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 30l chopp JK
+var range4 = document.querySelector('.range4');
+var linhaOrcamento4 = document.querySelector('.orcamento30L4');
+var value4 = document.querySelector('#resultadoTempoReal4');
+
+range4.addEventListener('input', function() {
+  if(range4.value == 0) {
+      linhaOrcamento4.style.display = 'none';
+  } else {
+      linhaOrcamento4.style.display = 'block';
+      value4.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 30l chopp Monumental
+var range5 = document.querySelector('.range5');
+var linhaOrcamento5 = document.querySelector('.orcamento30L5');
+var value5 = document.querySelector('#resultadoTempoReal5');
+
+range5.addEventListener('input', function() {
+  if(range5.value == 0) {
+      linhaOrcamento5.style.display = 'none';
+  } else {
+      linhaOrcamento5.style.display = 'block';
+      value5.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 50l chopp capital
+var range50L1 = document.querySelector('.range50L1');
+var linhaOrcamento50L = document.querySelector('.orcamento50L1');
+var value50L1 = document.querySelector('#resultadoTempoReal50L');
+
+range50L1.addEventListener('input', function() {
+  if(range50L1.value == 0) {
+      linhaOrcamento50L.style.display = 'none';
+  } else {
+      linhaOrcamento50L.style.display = 'block';
+      value50L1.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 50l chopp brasília
+var range50L2 = document.querySelector('.range50L2');
+var linhaOrcamento50L2 = document.querySelector('.orcamento50L2');
+var value50L2 = document.querySelector('#resultadoTempoReal50L2');
+
+range50L2.addEventListener('input', function() {
+  if(range50L2.value == 0) {
+      linhaOrcamento50L2.style.display = 'none';
+  } else {
+      linhaOrcamento50L2.style.display = 'block';
+      value50L2.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 50l chopp DSLR
+var range50L3 = document.querySelector('.range50L3');
+var linhaOrcamento50L3 = document.querySelector('.orcamento50L3');
+var value50L3 = document.querySelector('#resultadoTempoReal50L3');
+
+range50L3.addEventListener('input', function() {
+  if(range50L3.value == 0) {
+      linhaOrcamento50L3.style.display = 'none';
+  } else {
+      linhaOrcamento50L3.style.display = 'block';
+      value50L3.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 50l chopp JK
+var range50L4 = document.querySelector('.range50L4');
+var linhaOrcamento50L4 = document.querySelector('.orcamento50L4');
+var value50L4 = document.querySelector('#resultadoTempoReal4');
+
+range50L4.addEventListener('input', function() {
+  if(range4.value == 0) {
+      linhaOrcamento50L4.style.display = 'none';
+  } else {
+      linhaOrcamento50L4.style.display = 'block';
+      value50L4.textContent = this.value;
+  }
+});
+
+// Mostrar o resultado do slider de 50l chopp Monumental
+var range50L5 = document.querySelector('.range50L5');
+var linhaOrcamento50L5 = document.querySelector('.orcamento50L5');
+var value50L5 = document.querySelector('#resultadoTempoReal50L5');
+
+range50L5.addEventListener('input', function() {
+  if(range5.value == 0) {
+      linhaOrcamento50L5.style.display = 'none';
+  } else {
+      linhaOrcamento50L5.style.display = 'block';
+      value50L5.textContent = this.value;
+      value50L5 * 5.5
+  }
+});
+
+var resultadoReal = document.querySelector('#resultadoReais');
+var linhaTotal = document.querySelector('.totalReais');
+var soma = range1 + range2 + range3 + range4 + range5 + range50L1 + range50L2 + range50L3 + range50L4 + range50L5;
+  
+if (soma.value !== 0) {
+    resultadoReal.textContent = this.value;
+}
+
 </script>
 
 </body>
