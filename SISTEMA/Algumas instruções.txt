@@ -1,5 +1,4 @@
-Para fazer o login, insira o registro de adm no banco de dados e 
-acesse com esse usuario:
+Para fazer o login como adm acesse com esse usuario:
 (login = adm / senha = 123).
 
 Quando realizar o login será direcionado para a tela de estoque.

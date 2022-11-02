@@ -1,6 +1,7 @@
-create databade sgd;
+create database sgd;
 
 use sgd;
+
 
 CREATE TABLE `administrador` (
   `idAdministrador` int(11) NOT NULL AUTO_INCREMENT,
@@ -22,8 +23,13 @@ CREATE TABLE `cliente` (
   `senha` varchar(40) NOT NULL,
   `numeroTelefone` varchar(11) NOT NULL,
   `tipoUsuario` int(1) NOT NULL,
+  `enderecoRua` varchar(120) NOT NULL,
+  `enderecoNum` int(5) NOT NULL,
+  `enderecoCep` int(8) NOT NULL,
+  `enderecoRegiao` varchar(25) NOT NULL,
+  `cpf` int(11) NOT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `estoque_barris` (
   `idBarril` int(11) NOT NULL AUTO_INCREMENT,
@@ -53,5 +59,3 @@ CREATE TABLE `estoque_cilindros` (
   `emUso` varchar(3) NOT NULL,
   PRIMARY KEY (`idCilindro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO administrador (nome, endereco, sexo, salario, login, senha, funcao, tipoUsuario) VALUES ('Administrador', 'Rua dos Bobos número zero', 'm', '2500', 'adm', '202cb962ac59075b964b07152d234b70', '1', '1');

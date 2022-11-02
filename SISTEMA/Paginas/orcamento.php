@@ -11,7 +11,7 @@ $login = $_GET['login'];
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="../images/logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"  type="text/css" href="../css/style.css">
+<link rel="stylesheet"  type="text/css" href="../css/styleNovo.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -76,6 +76,7 @@ body, html {
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+<form action="FinalizaPedido.php" method="POST">
 <section>
   <div class="tabelasChopp">
     <div class="tabelasChoppTeste">
@@ -184,7 +185,7 @@ body, html {
           </tr>
           <tr>
             <td>
-              <input name="50lCapital" class="range50L2" type="range" min="0" max="5" list="tickmarks" value="0">
+              <input name="50lBrasilia" class="range50L2" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
               <option value="0">0
               <option value="1">1
@@ -196,7 +197,7 @@ body, html {
           </tr>
           <tr>
             <td>
-              <input name="50lCapital" class="range50L3" type="range" min="0" max="5" list="tickmarks" value="0">
+              <input name="50lDlsr" class="range50L3" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
               <option value="0">0
               <option value="1">1
@@ -208,7 +209,7 @@ body, html {
             </td>
           </tr>
           <tr>
-            <td><input name="50lCapital" class="range50L4" type="range" min="0" max="5" list="tickmarks" value="0">
+            <td><input name="50lJk" class="range50L4" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
               <option value="0">0
               <option value="1">1
@@ -220,7 +221,7 @@ body, html {
           </tr>
           <tr>
             <td>
-              <input name="50lCapital" class="range50L5" type="range" min="0" max="5" list="tickmarks" value="0">
+              <input name="50lMonumental" class="range50L5" type="range" min="0" max="5" list="tickmarks" value="0">
               <datalist id="tickmarks">
               <option value="0">0
               <option value="1">1
@@ -235,7 +236,6 @@ body, html {
       </div>
     </div>
   </div>
-
 </section>
 <div class="tabelaOrcamento1">
         <table>
@@ -246,31 +246,30 @@ body, html {
             </thead>
         </table>
         <table>
-            <form action="" method="POST">
                 <tr>
                     <td>                      
-                      <p class="orcamento30L1"><span id="resultadoTempoReal"></span> Barris de 30L - chopp capital</p>
-                      <p class="orcamento30L2"><span id="resultadoTempoReal2"></span> Barris de 30L - chopp brasília</p>
-                      <p class="orcamento30L3"><span id="resultadoTempoReal3"></span> Barris de 30L - chopp DSLR</p>
-                      <p class="orcamento30L4"><span id="resultadoTempoReal4"></span> Barris de 30L - chopp JK</p>
-                      <p class="orcamento30L5"><span id="resultadoTempoReal5"></span> Barris de 30L - chopp Monumental</p>
+                      <p class="orcamento30L1"><span id="resultadoTempoReal" name="30L1"></span> Barris de 30L - chopp capital</p>
+                      <p class="orcamento30L2"><span id="resultadoTempoReal2" name="30L2"></span> Barris de 30L - chopp brasília</p>
+                      <p class="orcamento30L3"><span id="resultadoTempoReal3" name="30L3"></span> Barris de 30L - chopp DSLR</p>
+                      <p class="orcamento30L4"><span id="resultadoTempoReal4" name="30L4"></span> Barris de 30L - chopp JK</p>
+                      <p class="orcamento30L5"><span id="resultadoTempoReal5" name="30L5"></span> Barris de 30L - chopp Monumental</p>
 
-                      <p class="orcamento50L1"><span id="resultadoTempoReal50L"></span> Barris de 50L - chopp capital</p>
-                      <p class="orcamento50L2"><span id="resultadoTempoReal50L2"></span> Barris de 50L - chopp brasília</p>
-                      <p class="orcamento50L3"><span id="resultadoTempoReal50L3"></span> Barris de 50L - chopp DSLR</p>
-                      <p class="orcamento50L4"><span id="resultadoTempoReal50L4"></span> Barris de 50L - chopp JK</p>
-                      <p class="orcamento50L5"><span id="resultadoTempoReal50L5"></span> Barris de 50L - chopp Monumental</p>
+                      <p class="orcamento50L1"><span id="resultadoTempoReal50L" name="50L1"></span> Barris de 50L - chopp capital</p>
+                      <p class="orcamento50L2"><span id="resultadoTempoReal50L2" name="50L2"></span> Barris de 50L - chopp brasília</p>
+                      <p class="orcamento50L3"><span id="resultadoTempoReal50L3" name="50L3"></span> Barris de 50L - chopp DSLR</p>
+                      <p class="orcamento50L4"><span id="resultadoTempoReal50L4" name="50L4"></span> Barris de 50L - chopp JK</p>
+                      <p class="orcamento50L5"><span id="resultadoTempoReal50L5" name="50L5"></span> Barris de 50L - chopp Monumental</p>
                     </td>
                 </tr>
-                <input class="btn-orcamento" type="button" name="enviar" value="Confirmar orçamento!">
-            </form>
+                <button class="btn-orcamento">Confirmar Orçamento</button>
+</form>     
         </table>
     </div>
     <div class="tabelaResultado">
       <table>
           <tr>
                 <td>
-                  <p class="totalReais">TOTAL - R$: <span id="resultadoReais"></span></p>
+                  <p class="totalReais">TOTAL - R$: <span class="resultado"></span></p>
                 </td>
               </tr>
         </table>
@@ -438,10 +437,10 @@ range50L3.addEventListener('input', function() {
 // Mostrar o resultado do slider de 50l chopp JK
 var range50L4 = document.querySelector('.range50L4');
 var linhaOrcamento50L4 = document.querySelector('.orcamento50L4');
-var value50L4 = document.querySelector('#resultadoTempoReal4');
+var value50L4 = document.querySelector('#resultadoTempoReal50L4');
 
 range50L4.addEventListener('input', function() {
-  if(range4.value == 0) {
+  if(range50L4.value == 0) {
       linhaOrcamento50L4.style.display = 'none';
   } else {
       linhaOrcamento50L4.style.display = 'block';
@@ -455,22 +454,31 @@ var linhaOrcamento50L5 = document.querySelector('.orcamento50L5');
 var value50L5 = document.querySelector('#resultadoTempoReal50L5');
 
 range50L5.addEventListener('input', function() {
-  if(range5.value == 0) {
+  if(range50L5.value == 0) {
       linhaOrcamento50L5.style.display = 'none';
   } else {
       linhaOrcamento50L5.style.display = 'block';
       value50L5.textContent = this.value;
-      value50L5 * 5.5
   }
 });
 
-var resultadoReal = document.querySelector('#resultadoReais');
 var linhaTotal = document.querySelector('.totalReais');
-var soma = range1 + range2 + range3 + range4 + range5 + range50L1 + range50L2 + range50L3 + range50L4 + range50L5;
-  
-if (soma.value !== 0) {
-    resultadoReal.textContent = this.value;
-}
+var range1 = document.querySelector('.range1');
+var range2 = document.querySelector('.range2');
+var range3 = document.querySelector('.range3');
+var range4 = document.querySelector('.range4');
+var range5 = document.querySelector('.range5');
+var range50L1 = document.querySelector('.range50L1');
+var range50L2 = document.querySelector('.range50L2');
+var range50L3 = document.querySelector('.range50L3');
+var range50L4 = document.querySelector('.range50L4');
+var range50L5 = document.querySelector('.range50L5');
+
+var resultado = parseInt(range1) + parseInt(range2) + parseInt(range3) + parseInt(range4) + parseInt(range5) + parseInt(range50L1) + parseInt(range50L2) + parseInt(range50L3) + parseInt(range50L4) + parseInt(range50L5);
+
+document.querySelector(".resultado").innerHTML = resultado;
+ 
+
 
 </script>
 

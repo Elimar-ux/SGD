@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../PaginasControle/conexao.php');
-include('../PaginasControle/verificaLogin.php');
+
 
 // consulta no banco de dados
 $consulta1 ="SELECT * FROM estoque_chopeiras";
@@ -194,8 +194,8 @@ $totalEstBarris = mysqli_num_rows($con3);
 				<div class="btnTabela2">
 					<form action="cadEstCilindro.php">
 						<button id="botao">Inserir</button>
+					</form>
 				</div>
-
 				<div class="btnTabela3">
 					<form action="cadEstBarril.php">
 						<button id="botao">Inserir</button>
