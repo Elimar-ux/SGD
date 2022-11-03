@@ -159,6 +159,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril30L1 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril30L1";?></p>
+          			<input type="hidden" name="valorBarril30L1" value="<?php echo "$valorBarril30L1";?>">
 				<?php
 					}
 				?>
@@ -167,6 +168,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril30L2 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril30L2";?></p>
+          			<input type="hidden" name="valorBarril30L2" value="<?php echo "$valorBarril30L2";?>">
 				<?php
 					}
 				?>
@@ -175,6 +177,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril30L3 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril30L3";?></p>
+          			<input type="hidden" name="valorBarril30L3" value="<?php echo "$valorBarril30L3";?>">
 				<?php
 					}
 				?>
@@ -183,6 +186,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril30L4 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril30L4";?></p>
+          			<input type="hidden" name="valorBarril30L4" value="<?php echo "$valorBarril30L4";?>">
 				<?php
 					}
 				?>
@@ -191,6 +195,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril30L5 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril30L5";?></p>
+          			<input type="hidden" name="valorBarril30L5" value="<?php echo "$valorBarril30L5";?>">
 				<?php
 					}
 				?>
@@ -200,6 +205,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril50L1 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril50L1";?></p>
+          			<input type="hidden" name="valorBarril50L1" value="<?php echo "$valorBarril50L1";?>">
 				<?php
 					}
 				?>
@@ -208,6 +214,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril50L2 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril50L2";?></p>
+          			<input type="hidden" name="valorBarril50L2" value="<?php echo "$valorBarril50L2";?>">
 				<?php
 					}
 				?>
@@ -216,6 +223,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril50L3 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril50L3";?></p>
+          			<input type="hidden" name="valorBarril50L3" value="<?php echo "$valorBarril50L3";?>">
 				<?php
 					}
 				?>
@@ -224,6 +232,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril50L4 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril50L4";?></p>
+          			<input type="hidden" name="valorBarril50L4" value="<?php echo "$valorBarril50L4";?>">
 				<?php
 					}
 				?>
@@ -232,6 +241,7 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
           			if ($barril50L5 > 0){
           		?>
           			<p>R$ <?php echo "$valorBarril50L5";?></p>
+          			<input type="hidden" name="valorBarril50L5" value="<?php echo "$valorBarril50L5";?>">
 				<?php
 					}
 				?>
@@ -249,7 +259,17 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
  	</div>
  	<form action="../PaginasControle/cFinalizaPedido.php" method="POST">
  	<div class="form-box">
- 		<input type="hidden" name="login" value="<?php echo $login?>">
+ 		<input type="hidden" name="litrosBarril30L1" value="<?php echo "$barril30L1";?>">
+ 		<input type="hidden" name="litrosBarril30L2" value="<?php echo "$barril30L2";?>">
+ 		<input type="hidden" name="litrosBarril30L3" value="<?php echo "$barril30L3";?>">
+ 		<input type="hidden" name="litrosBarril30L4" value="<?php echo "$barril30L4";?>">
+ 		<input type="hidden" name="litrosBarril30L5" value="<?php echo "$barril30L5";?>">
+ 		<input type="hidden" name="litrosBarril50L1" value="<?php echo "$barril50L1";?>">
+ 		<input type="hidden" name="litrosBarril50L2" value="<?php echo "$barril50L2";?>">
+ 		<input type="hidden" name="litrosBarril50L3" value="<?php echo "$barril50L3";?>">
+ 		<input type="hidden" name="litrosBarril50L4" value="<?php echo "$barril50L4";?>">
+ 		<input type="hidden" name="litrosBarril50L5" value="<?php echo "$barril50L5";?>">
+ 		<input type="hidden" name="login" value="<?php echo "$login";?>">
  		<input type="hidden" name="valorTotal" value="<?php echo "$somaValorTotal";?>">
 	 	<label>Digite o endereço do evento:</label>
 	 	<input type="text" name="enderecoRua" placeholder="Rua">
@@ -266,8 +286,8 @@ $somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarr
 		  <option value="ted">Depósito bancário</option>
 		</select>
 		<button class="btn-form-finPedido">Finaliar Pedido</button>
- 	</form>
  	</div>
+ 	</form>
  </div>
  </body>
  </html>

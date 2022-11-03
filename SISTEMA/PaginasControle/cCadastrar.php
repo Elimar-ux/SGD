@@ -71,6 +71,8 @@ if ($resultado) {
 	header('Location: ../Paginas/orcamento.php');
 	exit();
 } else {
-	echo "Erro ao cadastrar, Tente novamente!";
+    $m = "Erro ao cadastrar, Tente novamente!";
+    header("Location: ../Paginas/cadastrar.php?m=$m");
+    exit();
 }
 ?>

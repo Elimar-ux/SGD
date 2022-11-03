@@ -59,3 +59,24 @@ CREATE TABLE `estoque_cilindros` (
   `emUso` varchar(3) NOT NULL,
   PRIMARY KEY (`idCilindro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `pedidos` (
+  `idPedidos` int(11) NOT NULL AUTO_INCREMENT,
+  `nomeCliente` varchar(45) NOT NULL,
+  `qtdBarris30lCapital` varchar(2) NOT NULL,
+  `qtdBarris30lBrasilia` varchar(2) NOT NULL,
+  `qtdBarris30lDLSR` varchar(2) NOT NULL,
+  `qtdBarris30lJK` varchar(2) NOT NULL,
+  `qtdBarris30lMonumental` varchar(2) NOT NULL,
+  `qtdBarris50lCapital` varchar(2) NOT NULL,
+  `qtdBarris50lBrasilia` varchar(2) NOT NULL,
+  `qtdBarris50lDLSR` varchar(2) NOT NULL,
+  `qtdBarris50lJK` varchar(2) NOT NULL,
+  `qtdBarris50lMonumental` varchar(2) NOT NULL,
+  `enderecoRua` varchar(120) NOT NULL,
+  `enderecoNum` varchar(5) NOT NULL,
+  `horarioEvento` time NOT NULL,
+  `dataEvento` varchar(11) NOT NULL,
+  `tipoPagamento` varchar(45) NOT NULL,
+  PRIMARY KEY (`idPedidos`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
