@@ -21,6 +21,13 @@ include('../PaginasControle/verificaLogin.php');
 	<!-- Fim-Menu -->
 	<div id="corpo-form-cad">
 		<h1>Adicionar cilindro</h1>
+		<span style="color: yellow;">
+            <?php
+                if(isset($_GET['m'])){
+                    echo $_GET['m'];
+                }   
+            ?>
+        </span>
 		<form method="POST" enctype="multipart/form-data" action="../PaginasControle/cEstCilindro.php">
 			<input type="text" name="codigoCilindro" placeholder="Código do cilindro">
 			<input type="text" name="pesoCilindro" placeholder="Peso do cilindro vazio">

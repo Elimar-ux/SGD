@@ -16,12 +16,16 @@ $senhaConfirm = md5($_POST['senhaConfirm']);
 
 
 if(empty($senha) OR empty($senhaConfirm)){
-	echo "Verifique se os campos estão preenchidos!";
+	$m = "Verifique se os campos estão preenchidos!";
+    header("Location: ../Paginas/alterarSenha.php?m=$m");
+    exit();
 }
 
 
 if ($senha != $senhaConfirm) {
-	echo "As senhas não combinam, confirme e tente novamente!";
+	$m = "As senhas não combinam, confirme e tente novamente!";
+    header("Location: ../Paginas/alterarSenha.php?m=$m");
+    exit();
 }
 
 

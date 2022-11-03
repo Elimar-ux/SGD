@@ -21,6 +21,13 @@ include('../PaginasControle/verificaLogin.php');
 	<!-- Fim-Menu -->
 	<div id="corpo-form-cad">
 		<h1>Adicionar barril</h1>
+		<span style="color: yellow;">
+            <?php
+                if(isset($_GET['m'])){
+                    echo $_GET['m'];
+                }   
+            ?>
+        </span>
 		<form method="POST" enctype="multipart/form-data" action="../PaginasControle/cEstBarril.php">
 			<input type="text" name="numeroBarril" placeholder="Código do barril">
 			<input type="text" name="nomeChopp" placeholder="Nome do chopp">

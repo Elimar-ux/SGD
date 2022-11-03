@@ -21,6 +21,13 @@ include('../PaginasControle/verificaLogin.php');
 	<!-- Fim-Menu -->
 	<div id="corpo-form-cad">
 		<h1>Adicionar chopeira</h1>
+		<span style="color: white">
+            <?php
+                if(isset($_GET['m'])){
+                    echo $_GET['m'];
+                }   
+            ?>
+        </span>
 		<form method="POST" enctype="multipart/form-data" action="../PaginasControle/cEstChopeira.php">
 			<input type="text" name="codigo" placeholder="Código da chopeira">
 			<select name="tipoChopeira">
