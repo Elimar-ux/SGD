@@ -5,6 +5,15 @@ include('../PaginasControle/verificaLoginCliente.php');
 
 $login	= $_SESSION['login'];
 
+$sql = "SELECT valor_Litro FROM tabela_precos WHERE litros_barril = '30'";
+$con = mysqli_query($conexao, $sql);
+$dado = mysqli_fetch_assoc($con);
+
+$sql2 = "SELECT valor_Litro FROM tabela_precos WHERE litros_barril = '50'";
+$con2 = mysqli_query($conexao, $sql2);
+$dado2 = mysqli_fetch_assoc($con2);
+
+
 // Barris de 30litros 
 $barril30L1 = $_POST['30lCapital'];
 $barril30L2 = $_POST['30lBrasilia'];
@@ -19,11 +28,11 @@ $litrosBarril30L4 = $barril30L4 * 30;
 $litrosBarril30L5 = $barril30L5 * 30;
 
 
-$valorBarril30L1 = number_format(ceil($litrosBarril30L1 * 11.66), 2, ',', '');
-$valorBarril30L2 = number_format(ceil($litrosBarril30L2 * 11.66), 2, ',', '');
-$valorBarril30L3 = number_format(ceil($litrosBarril30L3 * 11.66), 2, ',', '');
-$valorBarril30L4 = number_format(ceil($litrosBarril30L4 * 11.66), 2, ',', '');
-$valorBarril30L5 = number_format(ceil($litrosBarril30L5 * 11.66), 2, ',', '');
+$valorBarril30L1 = number_format(round($barril30L1 * $dado['valor_Litro']), 2, ',', '');
+$valorBarril30L2 = number_format(round($barril30L2 * $dado['valor_Litro']), 2, ',', '');
+$valorBarril30L3 = number_format(round($barril30L3 * $dado['valor_Litro']), 2, ',', '');
+$valorBarril30L4 = number_format(round($barril30L4 * $dado['valor_Litro']), 2, ',', '');
+$valorBarril30L5 = number_format(round($barril30L5 * $dado['valor_Litro']), 2, ',', '');
 
 
 // Barris de 50litros
@@ -39,17 +48,17 @@ $litrosBarril50L3 = $barril50L3 * 50;
 $litrosBarril50L4 = $barril50L4 * 50;
 $litrosBarril50L5 = $barril50L5 * 50;
 
-$valorBarril50L1 = number_format(round($litrosBarril50L1 * 11), 2, ',', '');
-$valorBarril50L2 = number_format(round($litrosBarril50L2 * 11), 2, ',', '');
-$valorBarril50L3 = number_format(round($litrosBarril50L3 * 11), 2, ',', '');
-$valorBarril50L4 = number_format(round($litrosBarril50L4 * 11), 2, ',', '');
-$valorBarril50L5 = number_format(round($litrosBarril50L5 * 11), 2, ',', '');
+$valorBarril50L1 = number_format(round($barril50L1 * $dado2['valor_Litro']), 2, ',', '');
+$valorBarril50L2 = number_format(round($barril50L2 * $dado2['valor_Litro']), 2, ',', '');
+$valorBarril50L3 = number_format(round($barril50L3 * $dado2['valor_Litro']), 2, ',', '');
+$valorBarril50L4 = number_format(round($barril50L4 * $dado2['valor_Litro']), 2, ',', '');
+$valorBarril50L5 = number_format(round($barril50L5 * $dado2['valor_Litro']), 2, ',', '');
 
 // Soma do total de litros
 $somaLitrosTotal = $litrosBarril30L1 + $litrosBarril30L2 + $litrosBarril30L3 + $litrosBarril30L4 + $litrosBarril30L5 + $litrosBarril50L1 + $litrosBarril50L2 + $litrosBarril50L3 + $litrosBarril50L4 + $litrosBarril50L5;
 
 // Soma valor total
-$somaValorTotal = number_format(round(($litrosBarril30L1 * 11.66) + ($litrosBarril30L2 * 11.66) + ($litrosBarril30L3 * 11.66) + ($litrosBarril30L4 * 11.66) + ($litrosBarril30L5 * 11.66) + ($litrosBarril50L1 * 11) + ($litrosBarril50L2 * 11) + ($litrosBarril50L3 * 11) + ($litrosBarril50L4 * 11) + ($litrosBarril50L5 * 11)), 2, ',', '');
+$somaValorTotal = number_format(round(($barril30L1 * $dado['valor_Litro']) + ($barril30L2 * $dado['valor_Litro']) + ($barril30L3 * $dado['valor_Litro']) + ($barril30L4 * $dado['valor_Litro']) + ($barril30L5 * $dado['valor_Litro']) + ($barril50L1 * $dado2['valor_Litro']) + ($barril50L2 * $dado2['valor_Litro']) + ($barril50L3 * $dado2['valor_Litro']) + ($barril50L4 * $dado2['valor_Litro']) + ($barril50L5 * $dado2['valor_Litro'])), 2, ',', '');
 
  ?>
 

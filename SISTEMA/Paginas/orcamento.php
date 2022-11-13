@@ -3,6 +3,14 @@ session_start();
 include('../PaginasControle/conexao.php');
 include('../PaginasControle/verificaLoginCliente.php');
 $login = $_GET['login'];
+
+$sql = "SELECT valor_Litro FROM tabela_precos WHERE litros_barril = '30'";
+$con = mysqli_query($conexao, $sql);
+$dado = mysqli_fetch_assoc($con);
+
+$sql2 = "SELECT valor_Litro FROM tabela_precos WHERE litros_barril = '50'";
+$con2 = mysqli_query($conexao, $sql2);
+$dado2 = mysqli_fetch_assoc($con2);
  ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +55,6 @@ body, html {
 </style>
 </head>
 <body>
-
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
@@ -77,6 +84,10 @@ body, html {
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
 <form action="FinalizaPedido.php" method="POST">
+
+  <input type="hidden" name="valorBarril30L" id="valorBarril30L" value="<?php echo $dado['valor_Litro']; ?>">
+  <input type="hidden" name="valorBarril50L" id="valorBarril50L" value="<?php echo $dado2['valor_Litro']; ?>">
+
 <section>
   <div class="tabelasChopp">
     <div class="tabelasChoppTeste">
@@ -248,17 +259,18 @@ body, html {
         <table>
                 <tr>
                     <td>                      
-                      <p class="orcamento30L1"><span id="resultadoTempoReal" name="30L1"></span> Barris de 30L - chopp capital</p>
-                      <p class="orcamento30L2"><span id="resultadoTempoReal2" name="30L2"></span> Barris de 30L - chopp brasília</p>
-                      <p class="orcamento30L3"><span id="resultadoTempoReal3" name="30L3"></span> Barris de 30L - chopp DSLR</p>
-                      <p class="orcamento30L4"><span id="resultadoTempoReal4" name="30L4"></span> Barris de 30L - chopp JK</p>
-                      <p class="orcamento30L5"><span id="resultadoTempoReal5" name="30L5"></span> Barris de 30L - chopp Monumental</p>
+                      <p class="orcamento30L1"><span id="resultadoTempoReal" name="30L1"></span> Barris de 30L - chopp capital- R$ <span id="rtr30l1" name="valor30L1item"></span></p>
+                      <p class="orcamento30L2"><span id="resultadoTempoReal2" name="30L2"></span> Barris de 30L - chopp brasília- R$ <span id="rtr30l2" name="valor30L2item"></span></p>
+                      <p class="orcamento30L3"><span id="resultadoTempoReal3" name="30L3"></span> Barris de 30L - chopp DSLR- R$ <span id="rtr30l3" name="valor30L3item"></span></p>
+                      <p class="orcamento30L4"><span id="resultadoTempoReal4" name="30L4"></span> Barris de 30L - chopp JK- R$ <span id="rtr30l4" name="valor30L4item"></span></p>
+                      <p class="orcamento30L5"><span id="resultadoTempoReal5" name="30L5"></span> Barris de 30L - chopp Monumental - R$ <span id="rtr30l5" name="valor30L5item"></span></p>
 
-                      <p class="orcamento50L1"><span id="resultadoTempoReal50L" name="50L1"></span> Barris de 50L - chopp capital</p>
-                      <p class="orcamento50L2"><span id="resultadoTempoReal50L2" name="50L2"></span> Barris de 50L - chopp brasília</p>
-                      <p class="orcamento50L3"><span id="resultadoTempoReal50L3" name="50L3"></span> Barris de 50L - chopp DSLR</p>
-                      <p class="orcamento50L4"><span id="resultadoTempoReal50L4" name="50L4"></span> Barris de 50L - chopp JK</p>
-                      <p class="orcamento50L5"><span id="resultadoTempoReal50L5" name="50L5"></span> Barris de 50L - chopp Monumental</p>
+                      <p class="orcamento50L1"><span id="resultadoTempoReal50L" name="50L1"></span> Barris de 50L - chopp capital - R$ <span id="rtr50l1" name="valor50L1item"></span></p>
+                      <p class="orcamento50L2"><span id="resultadoTempoReal50L2" name="50L2"></span> Barris de 50L - chopp brasília - R$ <span id="rtr50l2" name="valor50L2item"></span></p>
+                      <p class="orcamento50L3"><span id="resultadoTempoReal50L3" name="50L3"></span> Barris de 50L - chopp DSLR - R$ <span id="rtr50l3" name="valor50L3item"></span></p>
+                      <p class="orcamento50L4"><span id="resultadoTempoReal50L4" name="50L4"></span> Barris de 50L - chopp JK - R$ <span id="rtr50l4" name="valor50L4item"></span></p>
+                      <p class="orcamento50L5"><span id="resultadoTempoReal50L5" name="50L5"></span>
+					  Barris de 50L - chopp Monumental - R$ <span id="rtr50l5" name="valor50L5item"></span></p>
                     </td>
                 </tr>
                 <button class="btn-orcamento">Confirmar Orçamento</button>
@@ -269,7 +281,7 @@ body, html {
       <table>
           <tr>
                 <td>
-                  <p class="totalReais">TOTAL - R$: <span class="resultado"></span></p>
+                  <p class="totalReais">TOTAL - R$: <span class="resultado" id="totalReaisTempoReal" name="tRTR"></span></p>
                 </td>
               </tr>
         </table>
@@ -296,6 +308,9 @@ body, html {
 </footer>
  
 <script>
+var somaOrcamento = 0;
+var somaItem = 0;
+
 // Modal Image Gallery
 function onClick(element) {
   document.getElementById("img01").src = element.src;
@@ -321,11 +336,15 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 
+var valorBarril30L = document.getElementById('valorBarril30L').value;
+var valorBarril50L = document.getElementById('valorBarril50L').value;
 
 // Mostrar o resultado do slider de 30l chopp capital
+var somaItem30L1 = 0;
 var range1 = document.querySelector('.range1');
 var linhaOrcamento = document.querySelector('.orcamento30L1');
 var value1 = document.querySelector('#resultadoTempoReal');
+var valor30L1item = document.querySelector('#rtr30l1');
 
 range1.addEventListener('input', function() {
   if(range1.value == 0) {
@@ -333,13 +352,21 @@ range1.addEventListener('input', function() {
   } else {
       linhaOrcamento.style.display = 'block';
       value1.textContent = this.value;
+
+    // Item
+    somaItem30L1 = value1.textContent * valorBarril30L; // valor do item
+    valor30L1item.textContent = somaItem30L1;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
 // Mostrar o resultado do slider de 30l chopp brasília
+var somaItem30L2 = 0;
 var range2 = document.querySelector('.range2');
 var linhaOrcamento2 = document.querySelector('.orcamento30L2');
 var value2 = document.querySelector('#resultadoTempoReal2');
+var valor30L2item = document.querySelector('#rtr30l2');
 
 range2.addEventListener('input', function() {
   if(range2.value == 0) {
@@ -347,13 +374,21 @@ range2.addEventListener('input', function() {
   } else {
       linhaOrcamento2.style.display = 'block';
       value2.textContent = this.value;
+
+       // Item
+    somaItem30L2 = value2.textContent * valorBarril30L; // valor do item
+    valor30L2item.textContent = somaItem30L2;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
 // Mostrar o resultado do slider de 30l chopp DSLR
+var somaItem30L3 = 0;
 var range3 = document.querySelector('.range3');
 var linhaOrcamento3 = document.querySelector('.orcamento30L3');
 var value3 = document.querySelector('#resultadoTempoReal3');
+var valor30L3item = document.querySelector('#rtr30l3');
 
 range3.addEventListener('input', function() {
   if(range3.value == 0) {
@@ -361,13 +396,21 @@ range3.addEventListener('input', function() {
   } else {
       linhaOrcamento3.style.display = 'block';
       value3.textContent = this.value;
+
+      // Item
+    somaItem30L3 = value3.textContent * valorBarril30L; // valor do item
+    valor30L3item.textContent = somaItem30L3;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
 // Mostrar o resultado do slider de 30l chopp JK
+var somaItem30L4 = 0;
 var range4 = document.querySelector('.range4');
 var linhaOrcamento4 = document.querySelector('.orcamento30L4');
 var value4 = document.querySelector('#resultadoTempoReal4');
+var valor30L4item = document.querySelector('#rtr30l4');
 
 range4.addEventListener('input', function() {
   if(range4.value == 0) {
@@ -375,13 +418,21 @@ range4.addEventListener('input', function() {
   } else {
       linhaOrcamento4.style.display = 'block';
       value4.textContent = this.value;
+
+       // Item
+    somaItem30L4 = value4.textContent * valorBarril30L; // valor do item
+    valor30L4item.textContent = somaItem30L4;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
 // Mostrar o resultado do slider de 30l chopp Monumental
+var somaItem30L5 = 0;
 var range5 = document.querySelector('.range5');
 var linhaOrcamento5 = document.querySelector('.orcamento30L5');
 var value5 = document.querySelector('#resultadoTempoReal5');
+var valor30L5item = document.querySelector('#rtr30l5');
 
 range5.addEventListener('input', function() {
   if(range5.value == 0) {
@@ -389,13 +440,21 @@ range5.addEventListener('input', function() {
   } else {
       linhaOrcamento5.style.display = 'block';
       value5.textContent = this.value;
+
+      // Item
+    somaItem30L5 = value5.textContent * valorBarril30L; // valor do item
+    valor30L5item.textContent = somaItem30L5;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
 // Mostrar o resultado do slider de 50l chopp capital
+var somaItem50L1 = 0;
 var range50L1 = document.querySelector('.range50L1');
 var linhaOrcamento50L = document.querySelector('.orcamento50L1');
 var value50L1 = document.querySelector('#resultadoTempoReal50L');
+var valor50L1item = document.querySelector('#rtr50l1');
 
 range50L1.addEventListener('input', function() {
   if(range50L1.value == 0) {
@@ -403,13 +462,21 @@ range50L1.addEventListener('input', function() {
   } else {
       linhaOrcamento50L.style.display = 'block';
       value50L1.textContent = this.value;
+
+      // Item
+    somaItem50L1 = value50L1.textContent * valorBarril50L; // valor do item
+    valor50L1item.textContent = somaItem50L1;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
 // Mostrar o resultado do slider de 50l chopp brasília
+var somaItem50L2 = 0;
 var range50L2 = document.querySelector('.range50L2');
 var linhaOrcamento50L2 = document.querySelector('.orcamento50L2');
 var value50L2 = document.querySelector('#resultadoTempoReal50L2');
+var valor50L2item = document.querySelector('#rtr50l2');
 
 range50L2.addEventListener('input', function() {
   if(range50L2.value == 0) {
@@ -417,13 +484,22 @@ range50L2.addEventListener('input', function() {
   } else {
       linhaOrcamento50L2.style.display = 'block';
       value50L2.textContent = this.value;
+
+      // Item
+    somaItem50L2 = value50L2.textContent * valorBarril50L; // valor do item
+    valor50L2item.textContent = somaItem50L2;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
 // Mostrar o resultado do slider de 50l chopp DSLR
+var somaItem50L3 = 0;
 var range50L3 = document.querySelector('.range50L3');
 var linhaOrcamento50L3 = document.querySelector('.orcamento50L3');
 var value50L3 = document.querySelector('#resultadoTempoReal50L3');
+
+var valor50L3item = document.querySelector('#rtr50l3');
 
 range50L3.addEventListener('input', function() {
   if(range50L3.value == 0) {
@@ -431,13 +507,22 @@ range50L3.addEventListener('input', function() {
   } else {
       linhaOrcamento50L3.style.display = 'block';
       value50L3.textContent = this.value;
+
+      // Item
+    somaItem50L3 = value50L3.textContent * valorBarril50L; // valor do item
+    valor50L3item.textContent = somaItem50L3;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
 // Mostrar o resultado do slider de 50l chopp JK
+var somaItem50L4 = 0;
 var range50L4 = document.querySelector('.range50L4');
 var linhaOrcamento50L4 = document.querySelector('.orcamento50L4');
 var value50L4 = document.querySelector('#resultadoTempoReal50L4');
+
+var valor50L4item = document.querySelector('#rtr50l4');
 
 range50L4.addEventListener('input', function() {
   if(range50L4.value == 0) {
@@ -445,13 +530,24 @@ range50L4.addEventListener('input', function() {
   } else {
       linhaOrcamento50L4.style.display = 'block';
       value50L4.textContent = this.value;
+
+      // Item
+    somaItem50L4 = value50L4.textContent * valorBarril50L; // valor do item
+    valor50L4item.textContent = somaItem50L4;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
+
   }
 });
 
 // Mostrar o resultado do slider de 50l chopp Monumental
+var somaItem50L5 = 0;
 var range50L5 = document.querySelector('.range50L5');
 var linhaOrcamento50L5 = document.querySelector('.orcamento50L5');
 var value50L5 = document.querySelector('#resultadoTempoReal50L5');
+
+var valor50L5item = document.querySelector('#rtr50l5');
+var tRTR = document.querySelector('#totalReaisTempoReal');
 
 range50L5.addEventListener('input', function() {
   if(range50L5.value == 0) {
@@ -459,25 +555,21 @@ range50L5.addEventListener('input', function() {
   } else {
       linhaOrcamento50L5.style.display = 'block';
       value50L5.textContent = this.value;
+
+	   // Item
+    somaItem50L5 = value50L5.textContent * valorBarril50L; // valor do item
+    valor50L5item.textContent = somaItem50L5;
+    // Atualizar orçamento total:
+    orcamentoFinal(); 
   }
 });
 
-var linhaTotal = document.querySelector('.totalReais');
-var range1 = document.querySelector('.range1');
-var range2 = document.querySelector('.range2');
-var range3 = document.querySelector('.range3');
-var range4 = document.querySelector('.range4');
-var range5 = document.querySelector('.range5');
-var range50L1 = document.querySelector('.range50L1');
-var range50L2 = document.querySelector('.range50L2');
-var range50L3 = document.querySelector('.range50L3');
-var range50L4 = document.querySelector('.range50L4');
-var range50L5 = document.querySelector('.range50L5');
 
-var resultado = parseInt(range1) + parseInt(range2) + parseInt(range3) + parseInt(range4) + parseInt(range5) + parseInt(range50L1) + parseInt(range50L2) + parseInt(range50L3) + parseInt(range50L4) + parseInt(range50L5);
+function orcamentoFinal(){
+	var orcamentoTotal = somaItem50L5 + somaItem50L4 + somaItem50L3 + somaItem50L2 + somaItem50L1 + somaItem30L5 + somaItem30L4 + somaItem30L3 + somaItem30L2 + somaItem30L1;
+	tRTR.textContent = orcamentoTotal;
+}
 
-document.querySelector(".resultado").innerHTML = resultado;
- 
 
 
 </script>

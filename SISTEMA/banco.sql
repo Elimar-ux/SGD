@@ -80,3 +80,23 @@ CREATE TABLE `pedidos` (
   `tipoPagamento` varchar(45) NOT NULL,
   PRIMARY KEY (`idPedidos`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tabela_precos` (
+  `idPrecos` int(11) NOT NULL AUTO_INCREMENT,
+  `nomeChopp` varchar(45) NOT NULL,
+  `litros_barril` varchar(2) NOT NULL,
+  `valor_Litro` varchar(4) NOT NULL,
+  PRIMARY KEY (`idPrecos`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('1', 'chopp capital', '30', '350');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('2', 'chopp brasília', '30', '350');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('3', 'chopp DLSR', '30', '350');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('4', 'chopp jk', '30', '350');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('5', 'chopp monumental', '30', '350');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('6', 'chopp capital', '50', '550');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('7', 'chopp brasília', '50', '550');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('8', 'chopp DLSR', '50', '550');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('9', 'chopp jk', '50', '550');
+INSERT INTO `sgd`.`tabela_precos` (`idPrecos`, `nomeChopp`, `litros_barril`, `valor_Litro`) VALUES ('10', 'chopp monumental', '50', '550');
+
