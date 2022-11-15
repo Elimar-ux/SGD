@@ -2,7 +2,7 @@
 session_start();
 include('../PaginasControle/conexao.php');
 include('../PaginasControle/verificaLoginCliente.php');
-$login = $_GET['login'];
+$login = $_SESSION['login'];
 
 $sql = "SELECT valor_Litro FROM tabela_precos WHERE litros_barril = '30'";
 $con = mysqli_query($conexao, $sql);

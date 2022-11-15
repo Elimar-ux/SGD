@@ -2,6 +2,7 @@
 include('../PaginasControle/conexao.php');
 require_once '../vendor/autoload.php';
 
+$login = $_SESSION['login'];
 $enderecoRua = $_POST['enderecoRua'];
 $enderecoNum = $_POST['enderecoNumero'];
 $horaEvento = $_POST['horaEvento'];
@@ -56,7 +57,7 @@ $templateProcessor->setValues(
 	$templateProcessor->saveAs($pathToSave);
 
 
-$sqlPedido = "INSERT INTO pedidos (nomeCliente, qtdBarris30lCapital, qtdBarris30lBrasilia, qtdBarris30lDLSR, qtdBarris30lJK, qtdBarris30lMonumental, qtdBarris50lCapital, qtdBarris50lBrasilia, qtdBarris50lDLSR, qtdBarris50lJK, qtdBarris50lMonumental, enderecoRua, enderecoNum, horarioEvento, dataEvento, tipoPagamento) VALUES ('$nome', '$litrosBarril30L1', '$litrosBarril30L2', '$litrosBarril30L3', '$litrosBarril30L4', '$litrosBarril30L5', '$litrosBarril50L1', '$litrosBarril50L2', '$litrosBarril50L3', '$litrosBarril50L4', '$litrosBarril50L5', '$enderecoRua', '$enderecoNum', '$horaEvento', '$dataEvento', '$formaPagamento')";
+$sqlPedido = "INSERT INTO pedidos (nomeCliente, qtdBarris30lCapital, qtdBarris30lBrasilia, qtdBarris30lDLSR, qtdBarris30lJK, qtdBarris30lMonumental, qtdBarris50lCapital, qtdBarris50lBrasilia, qtdBarris50lDLSR, qtdBarris50lJK, qtdBarris50lMonumental, enderecoRua, enderecoNum, horarioEvento, dataEvento, tipoPagamento, loginCliente, situacao) VALUES ('$nome', '$litrosBarril30L1', '$litrosBarril30L2', '$litrosBarril30L3', '$litrosBarril30L4', '$litrosBarril30L5', '$litrosBarril50L1', '$litrosBarril50L2', '$litrosBarril50L3', '$litrosBarril50L4', '$litrosBarril50L5', '$enderecoRua', '$enderecoNum', '$horaEvento', '$dataEvento', '$formaPagamento', '$login', 'entrega pendente')";
 
 $resultado = mysqli_query($conexao, $sqlPedido);
 

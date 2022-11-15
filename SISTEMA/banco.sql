@@ -78,8 +78,11 @@ CREATE TABLE `pedidos` (
   `horarioEvento` time NOT NULL,
   `dataEvento` varchar(11) NOT NULL,
   `tipoPagamento` varchar(45) NOT NULL,
+  `loginCliente` varchar(25) NOT NULL,
+  `situacao` varchar(45) NOT NULL,
   PRIMARY KEY (`idPedidos`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
 
 CREATE TABLE `tabela_precos` (
   `idPrecos` int(11) NOT NULL AUTO_INCREMENT,
