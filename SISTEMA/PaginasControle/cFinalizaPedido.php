@@ -1,5 +1,7 @@
 <?php 
+session_start();
 include('../PaginasControle/conexao.php');
+include_once('../PaginasControle/verificaLoginCliente.php');
 require_once '../vendor/autoload.php';
 
 $login = $_SESSION['login'];
@@ -21,13 +23,32 @@ $litrosBarril50L3 = $_POST['litrosBarril50L3'];
 $litrosBarril50L4 = $_POST['litrosBarril50L4'];
 $litrosBarril50L5 = $_POST['litrosBarril50L5'];
 
-$sql = "SELECT * FROM cliente WHERE login = '$login'";
+$sqlChopeiras = "SELECT * FROM estoque_chopeiras";
+$con2 = mysqli_query($conexao, $sqlChopeiras);
+$numChopeiras = mysqli_num_rows($con2);
 
+$sqlVerifcPedidos = "SELECT * FROM pedidos WHERE dataEvento = '$dataEvento'";
+$con3 = mysqli_query($conexao, $sqlVerifcPedidos);
+$numPedidos = mysqli_num_rows($con3);
+
+if ($numPedidos >= $numChopeiras) {
+	$msg = "Nenhuma chopeira disponível para o dia selecionado!";
+	header("Location: ../Paginas/orcamento.php?m=$msg");
+	exit();
+}
+
+$sql = "SELECT * FROM cliente WHERE login = '$login'";
 $con = mysqli_query($conexao, $sql);
 $dado = mysqli_fetch_assoc($con);
 
+$sql2 = "SELECT * FROM pedidos";
+$con2 = mysqli_query($conexao, $sql2);
+$numPedidos = mysqli_num_rows($con2);
+
 $nome = $dado['nome'];
 $cpf = $dado['cpf'];
+$tel = $dado['numeroTelefone'];
+$numeros = $numPedidos + 1;
 $enderecoRuaCliente = $dado['enderecoRua'];
 $enderecoNumCliente = $dado['enderecoNum'];
 $enderecoCepCliente = $dado['enderecoCep'];
@@ -53,13 +74,15 @@ $templateProcessor->setValues(
 
 
 
-	$pathToSave = "../contratos/contrato($nome).docx";
+	$pathToSave = "../contratos/contrato($nome-$numeros).docx";
 	$templateProcessor->saveAs($pathToSave);
 
 
-$sqlPedido = "INSERT INTO pedidos (nomeCliente, qtdBarris30lCapital, qtdBarris30lBrasilia, qtdBarris30lDLSR, qtdBarris30lJK, qtdBarris30lMonumental, qtdBarris50lCapital, qtdBarris50lBrasilia, qtdBarris50lDLSR, qtdBarris50lJK, qtdBarris50lMonumental, enderecoRua, enderecoNum, horarioEvento, dataEvento, tipoPagamento, loginCliente, situacao) VALUES ('$nome', '$litrosBarril30L1', '$litrosBarril30L2', '$litrosBarril30L3', '$litrosBarril30L4', '$litrosBarril30L5', '$litrosBarril50L1', '$litrosBarril50L2', '$litrosBarril50L3', '$litrosBarril50L4', '$litrosBarril50L5', '$enderecoRua', '$enderecoNum', '$horaEvento', '$dataEvento', '$formaPagamento', '$login', 'entrega pendente')";
+$sqlPedido = "INSERT INTO pedidos (nomeCliente, qtdBarris30lCapital, qtdBarris30lBrasilia, qtdBarris30lDLSR, qtdBarris30lJK, qtdBarris30lMonumental, qtdBarris50lCapital, qtdBarris50lBrasilia, qtdBarris50lDLSR, qtdBarris50lJK, qtdBarris50lMonumental, enderecoRua, enderecoNum, horarioEvento, dataEvento, tipoPagamento, loginCliente, situacao, numeroCliente) VALUES ('$nome', '$litrosBarril30L1', '$litrosBarril30L2', '$litrosBarril30L3', '$litrosBarril30L4', '$litrosBarril30L5', '$litrosBarril50L1', '$litrosBarril50L2', '$litrosBarril50L3', '$litrosBarril50L4', '$litrosBarril50L5', '$enderecoRua', '$enderecoNum', '$horaEvento', '$dataEvento', '$formaPagamento', '$login', 'entrega pendente', '$tel')";
 
 $resultado = mysqli_query($conexao, $sqlPedido);
+
+
 
  ?>
 <!DOCTYPE html>

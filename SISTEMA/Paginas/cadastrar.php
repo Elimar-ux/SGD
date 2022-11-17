@@ -82,6 +82,19 @@
                         
                             <label>
 
+                                <i class="icon icon-user-1"></i>
+                                <span class="hidden">CPF</span>
+                            
+                            </label>
+                        
+                            <input type="text" name="text" placeholder="CPF" required>
+                      
+                        </div>
+
+                        <div class="form_field">
+                        
+                            <label>
+
                                 <i class="icon icon-phone"></i>
                                 <span class="hidden">telefone</span>
                             

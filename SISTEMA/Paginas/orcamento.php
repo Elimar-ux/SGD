@@ -257,6 +257,13 @@ body, html {
             </thead>
         </table>
         <table>
+          <span style="color: red">
+              <?php
+                  if(isset($_GET['m'])){
+                      echo $_GET['m'];
+                  }   
+              ?>
+          </span>
                 <tr>
                     <td>                      
                       <p class="orcamento30L1"><span id="resultadoTempoReal" name="30L1"></span> Barris de 30L - chopp capital- R$ <span id="rtr30l1" name="valor30L1item"></span></p>

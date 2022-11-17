@@ -59,7 +59,6 @@ $somaLitrosTotal = $litrosBarril30L1 + $litrosBarril30L2 + $litrosBarril30L3 + $
 
 // Soma valor total
 $somaValorTotal = number_format(round(($barril30L1 * $dado['valor_Litro']) + ($barril30L2 * $dado['valor_Litro']) + ($barril30L3 * $dado['valor_Litro']) + ($barril30L4 * $dado['valor_Litro']) + ($barril30L5 * $dado['valor_Litro']) + ($barril50L1 * $dado2['valor_Litro']) + ($barril50L2 * $dado2['valor_Litro']) + ($barril50L3 * $dado2['valor_Litro']) + ($barril50L4 * $dado2['valor_Litro']) + ($barril50L5 * $dado2['valor_Litro'])), 2, ',', '');
-
  ?>
 
  <!DOCTYPE html>

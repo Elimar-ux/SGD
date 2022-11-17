@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('../PaginasControle/conexao.php');
+include('../PaginasControle/verificaLogin.php');
+include('../PaginasControle/verificaPerfil.php');
 
 
 // consulta no banco de dados

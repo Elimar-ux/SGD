@@ -88,11 +88,11 @@ body, html {
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Whatsapp: (61) 98315-5678</p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
     <br>
-    <form action="/action_page.php" target="_blank">
+    <form action="PaginasControle/cEMAIL.php" method="POST">
       <p><input class="w3-input w3-border" type="text" placeholder="Nome" required name="Nome"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Assunto" required name="Assunto"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Mensagem" required name="Mensagem"></p>
+      <p><textarea name="msg" cols="16" rows="5" style="width: 100%;"></textarea></p>
       <p>
         <button class="w3-button w3-black" type="submit">
           <i class="fa fa-paper-plane"></i> Enviar

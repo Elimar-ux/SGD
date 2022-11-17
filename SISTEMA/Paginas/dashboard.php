@@ -1,17 +1,17 @@
 <?php 
 session_start();
 include('../PaginasControle/conexao.php');
-include('../PaginasControle/verificaLoginCliente.php');
+include('../PaginasControle/verificaLogin.php');
+include('../PaginasControle/verificaPerfil.php');
+
 $login = $_SESSION['login'];
 
 //Conexoes com o banco de dados e informaçoes
 $sql = "SELECT * FROM pedidos";
-$dado = mysqli_query($conexao, $sql);
+$con = mysqli_query($conexao, $sql);
 
 //Contador de pedidos
-$totalPedidos = mysqli_num_rows($dado);
-
-
+$totalPedidos = mysqli_num_rows($con);
  ?>
 <!DOCTYPE html>
 <html>
@@ -52,124 +52,126 @@ $totalPedidos = mysqli_num_rows($dado);
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-	<div>
-  <table class="tabela-top">
-    <tr>
-      <th>Historico de pedidos dos clientes</th>
-    </tr>
-    <tr>
-   	  <td>NOME DO CLIENTE</td>
-      <td>CHOPP</td>
-      <td>ENDEREÇO DO EVENTO</td>
-      <td>HORA DA ENTREGA</td>
-      <td>DATA DA ENTREGA</td>
-      <td>TIPO DE PAGAMENTO</td>
-      <td>SITUAÇÃO</td>
-    </tr>
-  </table>
-  <?php
-            while ($row_pedidos = mysqli_fetch_assoc($dado)){
-        ?>
-  <table class="tabela-bottom">
-    <tr>
-      <td><?php echo $row_pedidos['nomeCliente']?></td>
-      <td>
-        <!-- Barris de 30L  -->
-        <?php 
-                if ($row_pedidos['qtdBarris30lCapital'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris30lCapital'] * 30;?> litros de chopp capital(barril de 30L)</p>
+  <h2>Historico de pedidos dos clientes</h2>
+  <div class="container">
+  	<div class="tabelaHPedidos">
+      <table class="tabela-historico">
+        <tr class="titulo-tabela">
+       	  <td>NOME DO CLIENTE</td>
+          <td>CHOPP</td>
+          <td>ENDEREÇO DO EVENTO</td>
+          <td>HORA DA ENTREGA</td>
+          <td>DATA DA ENTREGA</td>
+          <td>TIPO DE PAGAMENTO</td>
+          <td>CONTATO</td>
+          <td colspan="2">SITUAÇÃO</td>
+        </tr>
+      <?php
+                while ($row_pedidos = mysqli_fetch_assoc($con)){
+                  $msg = 'Olá, '. $row_pedidos['nomeCliente'] . ', seu pedido foi realizado com sucesso! estaremos enviando o contrato em instantes.';
+            ?>
+        <tr>
+          <td><?php echo $row_pedidos['nomeCliente']?></td>
+          <td>
+            <!-- Barris de 30L  -->
+            <?php 
+                    if ($row_pedidos['qtdBarris30lCapital'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris30lCapital'];?> barril(s) de chopp capital de 30L</p>
+            <?php
+              }
+            ?>
+
+            <?php 
+                    if ($row_pedidos['qtdBarris30lBrasilia'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris30lBrasilia'];?> barril(s) de chopp brasília de 30L</p>
+            <?php
+              }
+            ?>
+
+            <?php 
+                    if ($row_pedidos['qtdBarris30lDLSR'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris30lDLSR'];?> barril(s) de chopp DLSR de 30L</p>
+            <?php
+              }
+            ?>
+
+            <?php 
+                    if ($row_pedidos['qtdBarris30lJK'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris30lJK'];?> barril(s) de chopp JK de 30L</p>
+            <?php
+              }
+            ?>
+
+            <?php 
+                    if ($row_pedidos['qtdBarris30lMonumental'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris30lMonumental'];?> barril(s) de chopp monumental de 30L</p>
+            <?php
+              }
+            ?>
+
+            <!-- Barris de 50L  -->
+            <?php 
+                    if ($row_pedidos['qtdBarris50lCapital'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris50lCapital'];?> barril(s) de chopp capital de 50L</p>
+            <?php
+              }
+            ?>
+
+            <?php 
+                    if ($row_pedidos['qtdBarris50lBrasilia'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris50lBrasilia'];?> barril(s) de chopp brasília de 50L</p>
+            <?php
+              }
+            ?>
+
+            <?php 
+                    if ($row_pedidos['qtdBarris50lDLSR'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris50lDSLR'];?> barril(s) de chopp DLSR de 50L</p>
+            <?php
+              }
+            ?>
+
+            <?php 
+                    if ($row_pedidos['qtdBarris30lJK'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris30lJK'];?> barril(s) de chopp JK de 50L</p>
+            <?php
+              }
+            ?>
+
+            <?php 
+                    if ($row_pedidos['qtdBarris50lMonumental'] > 0){
+                  ?>
+                    <p><?php echo $row_pedidos['qtdBarris50lMonumental'];?> barril(s) de chopp monumental de 50L</p>
+            <?php
+              }
+            ?>
+          </td>
+          <td><?php echo $row_pedidos['enderecoRua']. ', n° '. $row_pedidos['enderecoNum']?></td>
+          <td><?php echo date('H:II', strtotime($row_pedidos['horarioEvento']))?></td>
+          <td><?php echo $row_pedidos['dataEvento']?></td>
+          <td><?php echo $row_pedidos['tipoPagamento']?></td>
+          <td> <a href="https://api.whatsapp.com/send?phone=<?php echo $row_pedidos['numeroCliente']?>&text=<?php echo $msg?>">Eviar msg 1</a></td>
+          <td> <a href="entrega.php?idP=<?php echo $row_pedidos['idPedidos']?>">Entregue</a> </td>
+          <td> <a href="relatarProblema.php?idP=<?php echo $row_pedidos['idPedidos']?>">Relatar problema</a> </td>
+          
+
+        </tr>
         <?php
-          }
+        } if ($totalPedidos == '0') {
+            echo "Não há pedidos!";
+        }
         ?>
-
-        <?php 
-                if ($row_pedidos['qtdBarris30lBrasilia'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris30lBrasilia'] * 30;?> litros de chopp brasília(barril de 30L)</p>
-        <?php
-          }
-        ?>
-
-        <?php 
-                if ($row_pedidos['qtdBarris30lDLSR'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris30lDLSR'] * 30;?> litros de chopp DLSR(barril de 30L)</p>
-        <?php
-          }
-        ?>
-
-        <?php 
-                if ($row_pedidos['qtdBarris30lJK'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris30lJK'] * 30;?> litros de chopp JK(barril de 30L)</p>
-        <?php
-          }
-        ?>
-
-        <?php 
-                if ($row_pedidos['qtdBarris30lMonumental'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris30lMonumental'] * 30;?> litros de chopp monumental(barril de 30L)</p>
-        <?php
-          }
-        ?>
-
-        <!-- Barris de 50L  -->
-        <?php 
-                if ($row_pedidos['qtdBarris50lCapital'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris50lCapital'] * 50;?> litros de chopp capital(barril de 50L)</p>
-        <?php
-          }
-        ?>
-
-        <?php 
-                if ($row_pedidos['qtdBarris50lBrasilia'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris50lBrasilia'] * 50;?> litros de chopp brasília(barril de 50L)</p>
-        <?php
-          }
-        ?>
-
-        <?php 
-                if ($row_pedidos['qtdBarris50lDLSR'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris50lDSLR'] * 50;?> litros de chopp DLSR(barril de 50L)</p>
-        <?php
-          }
-        ?>
-
-        <?php 
-                if ($row_pedidos['qtdBarris30lJK'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris30lJK'] * 50;?> litros de chopp JK(barril de 50L)</p>
-        <?php
-          }
-        ?>
-
-        <?php 
-                if ($row_pedidos['qtdBarris50lMonumental'] > 0){
-              ?>
-                <p><?php echo $row_pedidos['qtdBarris50lMonumental'] * 50;?> litros de chopp monumental(barril de 50L)</p>
-        <?php
-          }
-        ?>
-      </td>
-      <td><?php echo $row_pedidos['enderecoRua']. ', n° '. $row_pedidos['enderecoNum']?></td>
-      <td><?php echo date('H:II', strtotime($row_pedidos['horarioEvento']))?></td>
-      <td><?php echo $row_pedidos['dataEvento']?></td>
-      <td><?php echo $row_pedidos['tipoPagamento']?></td>
-      <td></td>
-
-    </tr>
-  </table>
-
-  <?php
-    } if ($totalPedidos == '0') {
-        echo "Não há pedidos!";
-    }
-    ?>
+      </table>
+  </div>
 </div>
 </header>
   <!-- Modal for full size images on click-->
