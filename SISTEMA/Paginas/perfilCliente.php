@@ -158,7 +158,7 @@ $totalPedidos = mysqli_num_rows($dado);
       <td><?php echo date('H:II', strtotime($row_pedidos['horarioEvento']))?></td>
       <td><?php echo $row_pedidos['dataEvento']?></td>
       <td><?php echo $row_pedidos['tipoPagamento']?></td>
-      <td></td>
+      <td><?php echo $row_pedidos['situacao']?></td>
 
     </tr>
   </table>
