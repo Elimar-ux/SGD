@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Nov-2022 às 23:59
+-- Tempo de geração: 19-Nov-2022 às 00:12
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `sgd`
 --
+CREATE DATABASE IF NOT EXISTS `sgd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `sgd`;
 
 -- --------------------------------------------------------
 

@@ -1,4 +1,7 @@
 Para fazer o login como adm acesse com esse usuario:
 (login = adm / senha = 123).
 
-Quando realizar o login será direcionado para a tela de estoque.
+Para fazer login como cliente:
+login = lucas1 / senha = 1234
+login = pedrinho / senha 123
+login = lais123 / senha 123
