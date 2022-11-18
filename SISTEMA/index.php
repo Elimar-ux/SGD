@@ -58,8 +58,9 @@ body, html {
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:48px">
-    <p><a href="Paginas/orcamento.php" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Fazer um orçamento</a></p>
+  <div class="w3-display-left w3-text-white" style="margin-left: 10%;">
+  <img src="images/logo.png" height="400" width="400" style="margin-top: 30%;" >
+    <p><a href="Paginas/orcamento.php" style="margin: 85px" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Fazer um orçamento</a></p>
   </div> 
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -88,11 +89,11 @@ body, html {
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Whatsapp: (61) 98315-5678</p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
     <br>
-    <form action="PaginasControle/cEMAIL.php" method="POST">
+    <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-border" type="text" placeholder="Nome" required name="Nome"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Assunto" required name="Assunto"></p>
-      <p><textarea name="msg" cols="16" rows="5" style="width: 100%;"></textarea></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Mensagem" required name="Mensagem"></p>
       <p>
         <button class="w3-button w3-black" type="submit">
           <i class="fa fa-paper-plane"></i> Enviar
@@ -113,7 +114,7 @@ body, html {
     <a href="https://www.instagram.com/choppdrivejp/" class="fa fa-instagram w3-hover-opacity"></a>
 
   </div>
-  <p>Design da pagina por <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+
 </footer>
 </body>
 </html>
