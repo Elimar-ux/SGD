@@ -87,19 +87,14 @@ body, html {
   <div style="margin-top:48px">
     <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Brasília, DF</p>
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Whatsapp: (61) 98315-5678</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
     <br>
-    <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-border" type="text" placeholder="Nome" required name="Nome"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Assunto" required name="Assunto"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Mensagem" required name="Mensagem"></p>
+      <?php $mensagem = ''?>
       <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> Enviar
-        </button>
+        <a href="https://api.whatsapp.com/send?phone=61985690291&text=">Enviar</a>
       </p>
-    </form>
     <!-- Image of location/map -->
     <p>Localização: </p>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10858.493078336573!2d-47.87110198666806!3d-15.800945849262124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3b38bf6375b9%3A0x5b6cafaacd19f3f!2sCongresso%20Nacional!5e0!3m2!1spt-BR!2sbr!4v1665578918575!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

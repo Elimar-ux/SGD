@@ -46,7 +46,7 @@ CREATE TABLE `administrador` (
 --
 
 INSERT INTO `administrador` (`idAdministrador`, `nome`, `endereco`, `sexo`, `salario`, `login`, `senha`, `funcao`, `tipoUsuario`) VALUES
-(1, 'lucas rodrigues rocha', 'rua 4 chacara 25 casa 66', 'm', '5000', 'LLK', '202cb962ac59075b964b07152d234b70', 1, 1);
+(1, 'lucas rodrigues rocha', 'rua 4 chacara 25 casa 66', 'm', '5000', 'adm', '202cb962ac59075b964b07152d234b70', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -73,10 +73,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idCliente`, `nome`, `login`, `senha`, `numeroTelefone`, `tipoUsuario`, `enderecoRua`, `enderecoNum`, `enderecoCep`, `enderecoRegiao`, `cpf`) VALUES
-(13, 'Lucas Rodrigues Rocha', 'lucas1', '81dc9bdb52d04dc20036dbd8313ed055', '61985690291', 0, 'rua 4, chácara 25', 66, 72001305, 'Vicente Pires', 2147483647),
-(14, 'Pedro santos', 'pedrinho', '202cb962ac59075b964b07152d234b70', '61983572006', 0, '', 0, 0, '', 0),
-(15, 'Laís da Silva', 'lais123', '202cb962ac59075b964b07152d234b70', '61985690291', 0, '', 0, 0, '', 0),
-(16, 'Mauro Santos ', 'mauro', '202cb962ac59075b964b07152d234b70', '61985690291', 0, '', 0, 0, '', 0);
+(13, 'cliente teste', 'cliente', '81dc9bdb52d04dc20036dbd8313ed055', '61985690291', 0, 'rua 4, chácara 25', 66, 72001305, 'Vicente Pires', 2147483647);
 
 -- --------------------------------------------------------
 

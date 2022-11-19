@@ -2,6 +2,5 @@ Para fazer o login como adm acesse com esse usuario:
 (login = adm / senha = 123).
 
 Para fazer login como cliente:
-login = lucas1 / senha = 1234
-login = pedrinho / senha 123
-login = lais123 / senha 123
+login = cliente / senha = 1234
+

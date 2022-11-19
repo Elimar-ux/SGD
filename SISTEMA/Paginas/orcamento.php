@@ -280,10 +280,10 @@ body, html {
 					  Barris de 50L - chopp Monumental - R$ <span id="rtr50l5" name="valor50L5item"></span></p>
                     </td>
                 </tr>
-                <button class="btn-orcamento">Confirmar Orçamento</button>
-</form>     
         </table>
     </div>
+    <button class="btn-orcamento">Confirmar Orçamento</button>
+</form>
     <div class="tabelaResultado">
       <table>
           <tr>
@@ -293,6 +293,7 @@ body, html {
               </tr>
         </table>
     </div>
+    <input class="btn-clear" type="button" value="LIMPAR" onClick="window.location.href = 'orcamento.php'">
 </header>
   <!-- Modal for full size images on click-->
   <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">

@@ -53,23 +53,27 @@ $totalPedidos = mysqli_num_rows($dado);
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
 <div>
-  <table class="tabela-top">
-    <tr>
-      <th>Historico de pedidos</th>
-    </tr>
-    <tr>
-      <td>CHOPP</td>
-      <td>ENDEREÇO DO EVENTO</td>
-      <td>HORA DA ENTREGA</td>
-      <td>DATA DA ENTREGA</td>
-      <td>TIPO DE PAGAMENTO</td>
-      <td>SITUAÇÃO</td>
-    </tr>
-  </table>
+  <h3>Historico de pedidos</h3>
+  <div class="tbl-header">
+    <table cellpadding="7" cellspacing="0" border="0">
+      <thead>
+      <tr>
+        <td>CHOPP</td>
+        <td>ENDEREÇO DO EVENTO</td>
+        <td>HORA DA ENTREGA</td>
+        <td>DATA DA ENTREGA</td>
+        <td>TIPO DE PAGAMENTO</td>
+        <td>SITUAÇÃO</td>
+      </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
   <?php
             while ($row_pedidos = mysqli_fetch_assoc($dado)){
         ?>
-  <table class="tabela-bottom">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
     <tr>
       <td>
         <!-- Barris de 30L  -->
@@ -161,6 +165,7 @@ $totalPedidos = mysqli_num_rows($dado);
       <td><?php echo $row_pedidos['situacao']?></td>
 
     </tr>
+  </tbody>
   </table>
 
   <?php
@@ -168,6 +173,7 @@ $totalPedidos = mysqli_num_rows($dado);
         echo "Não há pedidos!";
     }
     ?>
+  </div>
 </div>
 </header>
   <!-- Modal for full size images on click-->

@@ -286,7 +286,15 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 .btn-orcamento{
 	position: absolute;
-	top: 500px;
+	top: 52.7%;
+	left: 73.6%;
+
+}
+
+.btn-clear{
+	position: absolute;
+	top: 52.7%;
+	left: 83%;
 }
 
 .btnTabelasteste{
