@@ -92,11 +92,51 @@ $resultado = mysqli_query($conexao, $sqlPedido);
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Pedido</title>
 </head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap Simple Success Confirmation Popup</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="../css/style_Pedido_sucesso.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <div class="text-center">
+	<!-- Button HTML (to Trigger Modal) -->
+	<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>
+</div>
+
+<!-- Modal HTML -->
+<div>
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>				
+				<h4 class="modal-title w-100">Ótimo!</h4>	
+			</div>
+			
+		</div>
+	</div>
+</div>  
 <body>
 	<?php 
 		if ($resultado){ ?>
-			<h2>Pedido finalizado com sucesso!</h2>
-			<p>O contrato será enviado por whatsapp, fique atento.</p>
+			<div class="modal-body">
+				
+				<h4>Pedido finalizado com sucesso!</h4>
+			<p>
+				<p class="text-center">O contrato será enviado por whatsapp, fique atento.</p>
+			</div>
+			<div class="modal-footer">
+				<form action="../Paginas/perfilCliente.php">
+				<button class="btn btn-success btn-block" data-dismiss="modal">VEJA SEU PEDIDO</button>
+				</form>
+			</div>
 	<?php
 		}else{ ?>
 			<h2>Falha ao finalizar o pedido!</h2>
